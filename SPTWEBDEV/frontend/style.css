@@ -1,0 +1,56 @@
+body {
+    background-image: url("https://s3.ap-northeast-2.amazonaws.com/materials.spartacodingclub.kr/webjong/images/background.jpg");
+    background-size: cover;
+    color: white;
+    background-position: center;
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.weather {
+    display: flex;
+    align-items: center;
+    margin-right: 30px;
+}
+
+.container {
+    flex-direction: column;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    height: 100vh;
+}
+
+.footer {
+    bottom: 0;
+    left: 0;
+    position: fixed;
+
+    text-align: center;
+    padding: 20px 0;
+    font-weight: bold;
+    width: 100%;
+}
+
+.motto {
+    margin-bottom: 100px;
+}
+
+.greeting {
+    margin-bottom: 50px;
+}
+
+.logo {
+    margin-left: 30px;
+    height: 32px;
+}
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+*{
+    font-family: 'Poppins', sans-serif;
+}

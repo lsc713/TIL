@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1>movie searching site</h1>
+    <form action="{{url_for('movie')}}">
+        <input type="text" name="query">
+        <button type="submit">search</button>
+    </form>
+    {% for movie in data %}
+    <p>{{ movie.movieNm }}</p>
+    {% endfor %}
+</body>
+
+</html>

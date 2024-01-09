@@ -3,7 +3,7 @@ arr= []
 arr = list(map(int,input().split()))
 
 result = 0
-"""
+""".
 
 i/o 예시
 

@@ -1,0 +1,33 @@
+1.
+DB :전자적인 관련데이터 집합
+
+2.
+DBMS
+사용자에게 DB를 정의하고 관리하는 기능을 제공하는 시스템
+
+metadata(catalog라고도 함)
+-자료를 설명하기 위한 정보
+-이 또한 DBMS에서 관리됨
+
+DBSYSTEM
+DB + DBMS + 연관 APPLICATION
+
+3.
+DB Models (cf.DB 구조란 데이터 유형, 관계,제약사항등을 의미)
+DB 구조를 기술하는데 사용되는 개념집합
+DB 구조를 추상화하여 표현할 수 있는 수단 제공
+
+conceptual data models => 요구사항요약하여 보여줄때 씀
+SQL은 logical data models
+
+4.
+datamodel schema: datamodel로 database구조 기술
+database state: DB는 바뀌기 마련, 특정시점의 스냅샷을 의미.(instances 집합으로도 불림)
+
+Three-schema architecture (명시적으로 나뉘지는 않는다)
+각 레벨을 독립시켜 어느 레벨의 변화가 타 레벨에 영향을 주지 않으며 매핑만 바꿔주면
+external schema=> 특정 유저들이 필요로하는 데이터만 표현
+conceptual schema=> 물리적 저장구조는 숨김
+internal schema => 자료구조 데이터 저장등 실체적 내용 기술
+
+===> 실제 데이터는 internal level에만 존재함.

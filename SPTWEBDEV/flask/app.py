@@ -56,8 +56,7 @@ def movie():
         query = '20230601'
 
     res = requests.get(
-        f"http://kobis.or.kr/kobisopenapi/webservice/rest/movie/searchMovieList.json?key=f5eef3421c602c6cb7ea224104795888&movieNm={
-            query}"
+        f"http://kobis.or.kr/kobisopenapi/webservice/rest/movie/searchMovieList.json?key=f5eef3421c602c6cb7ea224104795888&movieNm={query}"
     )
     rjson = res.json()
     movie_list = rjson["movieListResult"]["movieList"]

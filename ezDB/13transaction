@@ -1,0 +1,53 @@
+여러 sql이 단일작업으로 묶어져서 나누어질 수 없는 경우(all or nothing)
+
+START TRANSACTION;
+
+UPDATE account SET balance = balance - 200000 WHERE id = 'j';
+UPDATE account SET balance = balance + 200000 WHERE id = 'h';
+
+COMMIT; ( DB에 영구적으로 저장 및 transaction 종료)
+
+ROLLBACK; (DB에서 커밋이후 transaction시작 이전의 상태로되돌린 뒤 transaction을 종료)
+
+MYSQL의 경우에는 AUTOCOMMIT = ENABLE이므로 릴레이션의 변동이 생긴다면 데이터가 영구적으로 반영되어 저장된다.
+
+> START TRANSACTION과 함께 autocommit은 off된다. commit,rollback과 함께 transaction이 종료되면 원래 autocommit상태로 돌아간다.
+
+
+===
+상기 건을 java로 표현하면
+public void transfer(String fromId, String toId, int amount){
+    try{
+        Connection connection = ~;
+        connection.setAutoCommit(false);
+        ...
+        ...
+        connection.commit();
+    }catch(Exception e){
+        ...
+        connection.rollback();
+        ...
+    } finally{
+        connection.setAutoCommit(true);
+    }
+}
+
+==> 이걸 스프링으로 구현하면
+    @Transactional
+    public void transfer(~)
+        ...
+        ...
+
+   로 표현된다 (오호라 이거구나..)
+
+
+=========================
+
+transaction ACID
+Atomicaity =>논리적으로 쪼개질 수 없다 (all or nothing)
+Consistency =>DB의 규칙이 위반되지 않고 일관되도락해야함.
+Isolation
+
+> 상기와 같이 J H가 20만원 거래도중 H가 동시에 자기계좌에 30을 입금한다면 총250이 되야겠지만 220이 되어버릴 수 있음
+> 여러 transaction이 실행될때 혼자 실행되듯해야함. DBMS는 여러 isolation level을 제공하고 개발자는 이 레벨중 적당한 레벨에 대한 설정이 가능함.
+Durability => DB에 영구적으로 저장됨(DB시스템에 문제가 생겨도 commit이 되었다면 디비는 지속적으로 기록되어있다) 보통 DBMS가 보장함

@@ -65,3 +65,42 @@
 #
 #     return False
 # 출처: https://mjmjmj98.tistory.com/150 [👾:티스토리]
+
+
+
+# n = int(input())
+# result = 0
+#
+#
+# while n>=0:
+#     if n%5 ==0:
+#         result += (n//5)
+#         print(result)
+#         break
+#     n-=3
+#     result+=1
+# else:
+#         result = -1
+#         print(result)
+
+n = int(input())
+result = 0
+
+"""
+비커에 물을 퍼낸다 5짜리 3짜리
+5로 하는게 편하니 5로 맞출 수 있는지 계속 확인
+그 전까지 3으로 퍼냄
+난 안힘드니까 컴터한테 계속 시켜야지
+"""
+while n >= 0:
+    if n%5==0:
+        result += (n//5)
+        print(result)
+        break
+    n = n-3
+    result+=1
+else:
+    result = -1
+    print(result)
+
+

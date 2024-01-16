@@ -1,0 +1,33 @@
+x값에 따라 y값이 유일하게 결정될때
+x가 y를 결정한다
+y가 x에 의존한다.
+=> functional dependency
+
+x -> y
+left hand side , right hand side
+
+의미적 접근의 필요
+{} -> y
+y값은 언제나 하나를 갖는다.
+
+=============
+
+trivial FD
+x->y시 y가 x의 부분집합인경우
+non trivial FD
+x->y시 y가 x의 부분집합이 아닌경우
+만약 부분집합이 하나도 없다면
+completely non trivial FD
+
+============
+
+partial FD
+
+x->y
+x집합의 부분집합이 y를 결정지을 수 있다면
+(x의 부분집합이지만 동일하지 않은 집합)
+
+
+full FD
+x->y
+x의 부분집합이 y를 결정지을 수 없다면

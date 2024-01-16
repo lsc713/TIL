@@ -16,3 +16,12 @@
 # result = a(7,[1,2,3,4,7])
 # print(result)
 
+stack = []
+
+stack.append()
+stack.pop()
+
+from collections import deque
+
+q = deque()
+

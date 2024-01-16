@@ -1,0 +1,38 @@
+
+x == 10
+tx1 read x
+tx2 x = 50
+
+tx2 write x = 50
+tx1 read x = 10 --> A
+tx2 commit -->B
+tx1 read x = ??
+
+이떼 isaolation level에 따라 값이 달라짐
+if..
+read committed = read시점 기준으로 그전 commit된 데이터를 읽는다 => 50(B)
+repeatable read = tx시작기준으로 그 전 commit된 데이터를 읽는다.  => 10(A)
+
+mvcc == 특정시점기준으로 가장 최근에 commit 된 data만 읽는다.
+데이터 변환 이력을 관리하여 추가적인 저장공간을 활용한다.
+read 와 write는 서로를 block하지 않는다.
+
+==============
+
+tx 마다 서로다른 isolation level 설정 가능
+
+==============
+
+postgreSQL의 MVCC는 lost update를 repeatable read로 해결 가능
+근데 MySQL서는 불가능..
+
+MYSQL 서는 Lost Update방지를 위해 sql문 뒤에 FOR UPDATE를 함께 챙겨줘야한다.=> LOCKING READ!
+LOCKING READ는 가장 최근의 commit된 데이터를 읽는
+
+FOR UPDATE말고 FOR SHARE도 있는데, 전자는 exclusive lock, 후자는 read lock을 획득.
+
+Write skew 또한 LOCKING READ로 해결 가능
+또는 isolation level을 serializable로 변경하여 해결해도됨
+
+
+

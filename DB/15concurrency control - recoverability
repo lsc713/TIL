@@ -1,0 +1,32 @@
+어지러운경우
+1.A 100 - B에게 20 이체작업진행 동시에 B가 30 B에게 입금 , A 80 B 230
+2.30먼저입금되고 20입금진행 후 커밋, b 250이 되었지만 30입금에 대한 롤백실행 -> B는 200이되며 오류발생
+
+=>unrecoverable schedule로 이전상태로 회복불가능할 수 있어 DBMS상 허용하면안됨
+
+schedule 내에서 어떠한 tx도 자신이 읽은 데이터를 wirte한 tx이 먼저 commit/rollback전까지는 commit하지 않는다.
+recoverable schedule로서 rollback시 이전 상태로 온전히 돌아갈 수 있어 DBMS는 이런 schedule만 허용해야한다.
+
+2에서 20입금이 먼저 커밋된경우가 문제인데, 이는 의존관계상 30입금커밋 이후 20입금에 대한 커밋의 순서로 이루어져야한다..
+=>cascading rollback이라고함
+>이는 연쇄적인 rollback으로 처리비용이 많이 든다.
+
+cascadeless schedule
+schedule내에서 어떤 tx도 commit 되지 않은 tx들이 write한 데이터는 읽지 않는경우.
+
+=> cascadeless schedule이라해도
+가령 3만원의 상품을 2만원으로 내리려는 동시에 누군가 먼저 1만원으로 가격조정 이후 2만원 가격조정 후 커밋이된 이후 롤백을 진행하는경우
+cascadeless schedule이지만 가격은 똑같이 3만원으로 오류가 발생하여
+결론적으로 cascadeless schedule + 보강이 필요하다
+
+==> strict schedule
+schedule내에서 어떤 tx도 commit 되지 않은 tx들이 write한 데이터는 "쓰지도" 읽지 않는경우.
+
+
+========================
+
+unrecoverable vs recoverable>cascadeless schedule>strict schedule의 관계를 갖는다.
+
+=====================
+
+concurrency control provides serialiability & recoverability

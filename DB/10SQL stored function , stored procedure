@@ -1,0 +1,66 @@
+stored function != stored procedure
+
+사용자 정의함수
+
+delimiter $$
+CREATE FUNCTION id_generator()
+RETURNS int
+NOSQL
+BEGIN
+    RETURN(1000000000 + floor(rand() * 1000000000));
+END
+$$
+delimeter ;
+
+===========
+원래의 delimeter는 ;지만 사용자함수정의시 지정하여 변경 여기선 $$, 형반환을 적어야하며 시작과 끝 사이에 반환값을 넣어줘야함.
+
+=================
+조건문 반복문또한 사용이 가능하며
+
+등록된 stored function 파악에 대해서는
+SHOW FUNCTION STATUS where DB = 'company' = company테이블에 사용된 함수 확인 가능
+SHOW CREATE FUNCTION x = x함수의 내용을 알 수 있다.
+
+====================
+
+stored procedure
+
+delimeter $$
+
+CREATE PROCEDURE product(IN a int, IN b int, OUT result int)
+BEGIN
+    SET result = a*b;
+END
+$$
+delimiter;
+
+> 프로시저는 인풋과 아웃풋에 대한 기재가 필 (IN, OUT) =>IN은 생략가능.
+call product(5,7,@result) > 프로시저호출 및 변수 기재
+select @result;
+
+
+두 정수를 맞바꾸는 프로시저를 작성
+delimiter $$
+CREATE PROCEDURE swap(INOUT a int, INOUT b int)
+BEGIN
+    set @temp = a;
+    set a = b;
+    set b = @temp;
+END
+$$
+delimiter;
+
+===
+set @a = 5 , @b = 7;
+call swap(@a,@b);
+select @a,@b;
+
+======================================
+
+stored orocedure // stored function
+store function => return 값 반환 가능, procedure 불가능
+값 반환 function 필수, procedure 필수아님
+SQL statement에서 호출 function 가능, procedure 불가능
+transaction => 여러 sql을 묶어서 모두 성공하면 결과반영, 하나라도 실패하면 모두반영안됨.
+> stored procedure 사용가능, MYSQL store function 사용 불가능

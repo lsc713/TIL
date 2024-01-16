@@ -1,0 +1,72 @@
+ORDER BY
+ASC 오름차순 DESC 내림차순
+
+SELECT * FROM employee ORDER BY salary DESC;
+=> 여러개의 속성에 대한 정렬 가능.
+
+===============
+
+aggregate function
+여러 tuple들의 정보를 요약하여 하나의 값으로 추출하는 함수
+> NULL 값은 제외됨
+
+SELECT COUNT(*), MAX(salary), MIN(salary), AVG(salary)
+FROM works_on W JOIN employee E ON W.empl_id = E.id
+WHERE W.proj_id = 2002;
+
+플젝 2002에 참여한 임직원수와 최대임금 최소임금 평균임금을 알려줘
+
+==============
+
+GROUP BY
+
+관심있는 속성을 기준으로 그룹을 나누어 그룹별로 추출함수 적용
+
+SELECT W.proj_id, COUNT(*), MAX(salary), MIN(salary), AVG(salary)
+FROM work_on W JOIN employee E on W.empl_id = E.id
+GROYP BY W.proj_id;
+
+>각 프로젝트에 참여한 임직원 수와 최대연봉 최소연봉과 평균연봉을 알고 싶다.
+
+================
+
+HAVING
+>GROUP BY와 함께 사용한다.
+aggregate function 결과값을 바탕으로 필터링.
+
+SELECT W.proj_id, COUNT(*), MAX(salary), MIN(salary), AVG(salary)
+FROM work_on W JOIN employee E on W.empl_id = E.id
+GROYP BY W.proj_id
+HAVING COUNT(*) >= 7;
+
+프로젝트참여인원이 7명 이상인 프로젝트에 대한 프로젝트참여인원수와 최대 최소연봉 및 평균연봉을 반환
+
+
+>>예제 하나
+
+프로젝트 참여인원이 7명이상 프로젝트에 대해 각 프로젝트별로 프로젝트에 참여한 90년대생의 수와 이들의 평균연봉.
+
+SELECT proj_id, COUNT(*), ROUND(AVG(salary), 0)
+FROM works_on W JOIN employee E ON W.empl_id = E.id
+WHERE E.birth_date BETWEEN '19900101' AND '19991231'
+    AND W.proj_id IN( SELECT proj_id FROM works_on
+            GROUP BY proj_id HAVING COUNT(*) >= 7)
+GROUP BY W.proj_id
+ORDER BY W.proj_id;
+
+=> WHERE HAVING 어느절에 조건을 기입해야하는지 생각해야함을 알 수 있다.
+
+==============
+
+SELECT 실행순서
+
+6 SELECT attributes or aggregate function
+1 FROM table
+2 WHERE condition
+3 GROUP BY group attribute
+4 HAVING group condition
+5 ORDER BY attribute
+
+
+
+

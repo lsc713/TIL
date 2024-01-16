@@ -1,0 +1,5 @@
+NON INDEX = o(n)
+INDEX = o(longN) (B-tree based index)
+
+WHY INDEX ?
+빠른 조회, 빠른 정렬

@@ -1,0 +1,58 @@
+JOIN 두 데이터를 한번에 조회
+
+SELECT D.name
+FROM employee AS E, department AS D
+WHERE E.id = 1 and E.dept_id = D.id;
+
+> implicit join(암묵적 조인)
+where 절에 조건 명시 (옛날에 이렇게함)
+
+==>
+
+SELECT D.name
+FROM employee AS E JOIN department AS D ON E.dept_id = D.id
+WHERE E.id = 1;
+>exmplicit join (명시적 조인)
+FROM 절에 JOIN 키워드와 함께 명시하며 FROM절에 ON기입 후 join condition명시
+
+
+=============
+INNERJOIN 교집합 반환, 속성들이 차례대로 나열된 테이블 반
+
+OUTERJOIN
+FROM table1 LEFT (outer) JOIN table2 ON joincondition
+FROM table1 RIGHT (outer) JOIN table2 ON joincondition
+FROM table1 FULL (outer) JOIN table2 ON joincondition  => MYSQL에 없음
+
+벤다이어그램상 왼쪽(오른 또는 양쪽의)의 모든 행 반
+
+=================
+USING
+equi join시 속성과 값이 같다 사용.
+(묶인게 테이블 맨앞 속성으로 튀어나옴)
+
+SELECT D.name
+FROM employee AS E JOIN department AS D ON E.dept_id = D.dept_id
+
+==>
+
+SELECT D.name
+FROM employee AS E JOIN department AS D USING (dept_id);
+
+================
+
+NATURAL JOIN
+=> 같은 속성이 여러개인 경우 여러 속성이 모두 같은 경우만 반환.(가령 두 테이블다 name속성이 있는경우 직원name과 부서name은 같지 않아 empty set 반환됨)
+
+두 테이블에서 갖는 모든 속성값이 같은 부분에 대한 equi join 수행
+join condition을 따로 명시하지 않는다.
+
+SELECT * FROM employee E NATUREAL INNER JOIn department D;
+같은 속성열이 맨앞으로 나옴,
+
+==============
+
+cross join
+두 테이블로 만들 수 있는 모든 조합을 결과테이블로 반환한다. 조인조건이 따로 없다.
+implicit cross join: FROM table1, table2
+explicit cross join: FROM table1 CROSS JOIN table2

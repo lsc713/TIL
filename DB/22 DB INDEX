@@ -1,0 +1,53 @@
+NON INDEX = o(n)
+INDEX = o(longN) (B-tree based index)
+
+WHY INDEX ?
+빠른 조회, 빠른 정렬
+
+CREATE INDEX idx_name ON table_name(attribute_name);
+=> 중복을 허용한 인덱스를 만듬
+CREATE UNIQUE INDEX idx_name ON relation_name(attribute_name);
+=> 중복이 허용되지 않는 인덱스 생성
+
+=====
+PK에는 INDEX 대부분의 RDBMS 자동생성됨
+
+========
+
+SHOW INDEX FROM table_name
+테이블에 존재하는 인덱스 확
+
+=========
+사용되는 query에 맞게 index를 걸어줘야 query가 빠르게 처리될 수 있다.
+
+=========
+
+여러 INDEX중 특정 INDEX를 사용하도록하려면
+SELECT * FROM table FORCE INDEX (index)
+WHERE attribute
+
+특정 INDEX의 제외는 IGNORE INDEX를 사용
+
+=============
+
+INDEX를 마구만들면 어떨까?
+1.table에 write시 index도 변경되어 오버헤드 발생
+2.추가적인 저장공간을 차지해버림.
+=>불필요한 INDEX를 만들지 말자
+
+=========
+
+covering index
+조회속성일 index가 모두 cover할때를의미.
+조회 성능이 더 빠르다.
+
+=======
+
+hash index
+hash table을 사용하여 index구현
+시간복잡도는 o(1)
+
+단점:
+1.rehashing 부담
+2.equality만 비교가능, range 비교 불가능
+3. multicolumn index의 경우 전체 attribute에 대한 조회만 가능.

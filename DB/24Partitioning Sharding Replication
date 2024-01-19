@@ -1,0 +1,26 @@
+partitioning
+DB table을 더 작은 table로 나누는 것
+
+vertical partitioning
+NF 등
+horizontal partitioning(모든partion들을 같은 DB에 저장)
+테이블의 크기가 커질수록 인덱스의 크기도커지고 읽고 쓸때마다 처리시간도 조금씩 늘어난다.
+hash-based
+->한번 partition이 나눠지면 이후 partition을 추가하기는 까다롭다.
+가장 많이 사용될 패턴에 따라 partition key를 정하는것이 중요하다.
+
+==============
+
+sharding
+horizontal partitioning과 비슷하나
+각 partion이 독립된 DB서버에 저장
+DB서버에 부하를 분산시킴
+->> partition key를 shard key라고 부르며
+각 partition을 shard라고 부름.
+
+================
+
+replication(High Availability 고가용성 보장) 줄여서 HA보장
+DB서버의 데이터를 지속적으로 다른 서버로 카피
+본서버는 master/primary/leader라고하며
+레프리카서버는 slave/secondary/replica라고 불림

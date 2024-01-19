@@ -50,3 +50,15 @@ B tree 삭제
 > leaf node에 있는 predecessor or successor와 데이터와 위치를 바꾼 후 삭제한다.
 *predecessor 나보다 작은 데이터 중 가장 큰 데이터
 **successor 나보다 큰 데이터 중 가장 작은 데이터
+
+====================
+
+DB -> secondary storage에 저장됨
+>효율이 낮다.
+그래서 접근 많이안하면서 많은양을 저장할 수 있는 btree를 인덱스로 사용한다.
+
+block단위로 데이터를 읽는다.
+그리고 block단위에 대한 저장공간활용도가 높다
+
+
+** hash index는 삽입 삭제 조회시 O(1)이지만 범위조회나 정렬에 사용할 수 없는 단점 조회

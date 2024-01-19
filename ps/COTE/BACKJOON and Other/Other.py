@@ -16,12 +16,16 @@
 # result = a(7,[1,2,3,4,7])
 # print(result)
 
-stack = []
+# stack = []
+#
+# stack.append()
+# stack.pop()
+#
+# from collections import deque
+#
+# q = deque()
+#
 
-stack.append()
-stack.pop()
-
-from collections import deque
-
-q = deque()
-
+def solution(my_string, letter):
+    answer = ''
+    return answer

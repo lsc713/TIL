@@ -78,19 +78,20 @@ def answer():
     return render_template("answer.html", data=movie_list)
 
 @app.route("/answer_re")
-def answer1():
+def answer_re():
     if(request.args.get('query')):
         query = request.args.get('query')
     else:
-        query='20230601'
-
+        query = '20230601'
+        
     URL = f"http://kobis.or.kr/kobisopenapi/webservice/rest/boxoffice/searchWeeklyBoxOfficeList.json?key=f5eef3421c602c6cb7ea224104795888&targetDt={query}"
 
     res = requests.get(URL)
     rjson = res.json()
     movie_list = rjson['boxOfficeResult']['weeklyBoxOfficeList']
 
-    return render_template("answer.html",data= movie_list)
+    return render_template("answer.html",data=movie_list)
+
 
 
 if __name__ == '__main__':

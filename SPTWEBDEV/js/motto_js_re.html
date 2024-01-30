@@ -72,8 +72,8 @@
             src="https://s3.ap-northeast-2.amazonaws.com/materials.spartacodingclub.kr/webjong/images/sparta-logo.svg"
             alt="" srcset="" />
         <div class="weather">
-            <img id="weathericon" src="">
-            <span id="weathertext">20ºC</span>
+            <img id="tempicon" src="">
+            <span id="temptemp">20ºC</span>
         </div>
 
     </nav>
@@ -141,19 +141,18 @@
                 $("#quoteContent").text(contentMsg);
             })
 
+
         let weather_url = "http://spartacodingclub.shop/sparta_api/weather/seoul";
         fetch(weather_url)
             .then(res => res.json())
             .then(data => {
-                console.log(data);
-                let icon =data['icon']
-                let temperature = data['temp']
-                let message = `${temperature}ºC`
+                let temp = data['temp']
+                let icon = data['icon']
 
-                $('#weathericon').attr("src", icon)
-                $('#weathertext').text(message)
+                let tempMSG = `${temp}도`
+                $('#tempicon').attr('src',icon)
+                $('#temptemp').text(tempMSG)
             })
-
     </script>
 </body>
 

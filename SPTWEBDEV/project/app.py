@@ -77,5 +77,22 @@ def music_create():
     db.session.commit()
     return redirect(url_for('render_music_filter', username=username_receive))
 
+
+@app.route("/music/delete/<int:song_id>")
+def music_delete(song_id):
+    # Get the song by ID from the database
+    song = Song.query.get(song_id)
+
+    # Retrieve the username before deleting the song
+    username = song.username if song else None
+
+    if song:
+        # Delete the song from the database
+        db.session.delete(song)
+        db.session.commit()
+
+    # Redirect to a different route or render a template as needed
+    return redirect(url_for('render_music_filter', username=username))
+
 if __name__ == "__main__":
     app.run(debug=True)

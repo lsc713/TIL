@@ -12,3 +12,4 @@ for i in range(2,n):
     d[i] = max(array[i-1],array[i-2]+array[i])
 
 print(d[n-1])
+#

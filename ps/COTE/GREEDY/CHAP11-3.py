@@ -31,3 +31,5 @@ for i in range(len(s)-1): #앞이랑 다르면, 0이면 1증가 1이면 0 증가
                 count1+=1
 
 print(min(count1,count0))
+
+# 근데이거 100만문자열에 10101010이면 어떻게되는거지..

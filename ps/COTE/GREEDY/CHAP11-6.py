@@ -1,44 +1,25 @@
-# arr = list(map(int,input().split()))
-#
-# k  = int(input())
-#
-# result = 0
-#
-# for i in range(len(arr)):
-#     if(arr[i] >= 0):
-#         result = arr[i] -1
-#
-#     elif(arr[i] == 0):
-#         result = arr[i+1] -1
-#     else:
-#         result = -1
-#
-#
-# print(result)
-
 import heapq
 
 def solution(food_times, k):
-    if sum(food_times) <= k:
+    if sum(food_times) <= k:  # 음식 먹는 데 걸리는 시간이 k보다 작거나 같다면 -1
         return -1
 
-    q=[]
+    q = []  # 우선순위 큐
+    for i in range(len(food_times)):  # 우선순위 큐(최소 힙) 생성
+        heapq.heappush(q, (food_times[i], i + 1))  # 음식 시간과 음식 번호를 넣어준다
 
-    for i in range(len(food_times)):
-        heapq.heappush(q,(food_times[i],i+1))
-
-    sum_value = 0
-    previous = 0
     length = len(food_times)
-    while sum_value+((q[0][0] -previous) * length) <= k:
-        now = heapq.heappop(q)[0]
-        sum_value += (now - previous) * length
-        length -= 1
-        previous = now
+    prev = 0
 
-    result = sorted(q, key=lambda x:x[1])
-    return result[(k-sum_value) % length] [1]
+    while True:
+        # q[0][0] : 힙의 가장 상단 부분으로 음식 시간이 제일 적은 것이 해당된다.
+        if k > (q[0][0] - prev) * length:  # k보다 가장 적게 걸리는 음식 * 남은 음식 수가 작은 경우,
+            k -= (q[0][0] - prev) * length  # 가장 적게 걸리는 음식을 다 먹을 때까지 소요된 시간을 빼준다.
+            length -= 1
+            prev, _ = heapq.heappop(q)
+        else:
+            i = k % length
+            q.sort(key=lambda x: x[1])
+            return q[i][1]
 
-"""
-흠.. 쉽지 않네 ... 일단은 벽이다
-"""
+solution([3,1,2],5)

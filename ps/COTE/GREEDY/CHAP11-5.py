@@ -1,5 +1,4 @@
 n,m = map(int,input().split())
-arr= []
 arr = list(map(int,input().split()))
 
 result = 0
@@ -13,7 +12,10 @@ i/o 예시
 
 8
 
-13 12 13 12 32 32 23 32 possible 
+13 12 13 12 
+32 32 
+23 
+32 
 
 8 5
 1 5 4 3 2 4 5 2
@@ -43,7 +45,7 @@ for i in range(len(arr)):
 
 print(result)
 
-""" 이건 쉽지 않은걸..
+""" 
 n,m input
 array => data input
 

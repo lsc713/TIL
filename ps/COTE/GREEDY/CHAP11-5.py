@@ -62,5 +62,5 @@ for i in range(1,n+1):
 
 print(result)
     
-
+1초 1억이하면 괜찮은답변..
 """

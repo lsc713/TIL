@@ -10,3 +10,17 @@ for i in range(len(n)): #입력 갯수값 만큼 실행
         result *=num
 
 print(result)
+
+"""
+S = list(map(int,sorted(list(input()))))
+
+res = prev = S[0]
+for i in S[1:]:
+    if prev <= 1:
+        res += i
+    else:
+        res *= i
+    prev = i
+
+print(res)
+"""

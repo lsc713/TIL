@@ -1,11 +1,11 @@
 package org.example.baseball;
 
-import java.util.ArrayList;
+import java.text.DecimalFormat;
 import java.util.Arrays;
 import java.util.Scanner;
+import java.util.stream.Stream;
 
-import static java.lang.Math.*;
-
+import static java.lang.Math.random;
 
 public class BaseBall {
     public static void main(String[] args) {
@@ -32,10 +32,22 @@ public class BaseBall {
 
         while (true) {
             count++;
-            int number = sc.nextInt();
-            if(number < 100 || number > 1000){
+            String strNum = sc.nextLine();
+            char[] c = strNum.toCharArray();
+            int number = Integer.parseInt(strNum);
+            if( number > 1000 ){
+                System.out.println("세자리숫자를 적어주세요");
                 continue;
             }
+
+            if(c.length < 3) {
+                System.out.println("세자리 숫자를 입력하세요");
+                continue;
+            }
+
+
+
+
             user[0] = number / 100;
             user[1] = (number % 100) / 10;
             user[2] = number % 10;
@@ -44,22 +56,28 @@ public class BaseBall {
                 continue;
             }
             for (int i = 0; i < user.length; i++) {
-                if(number < 100 || number > 1000){
-                    System.out.println("세자리숫자를 적어주세요");
-                    continue;
-                }
+//                if(number < 100 || number > 1000){
+//                    System.out.println("세자리숫자를 적어주세요");
+//                    continue;
+//                }
                 for (int j = 0; j < user.length; j++) {
                     if (com[j]==user[i]){
-                      if(i == j){
-                          strike++;
-                      } else{
-                          ball++;
-                      }
+                        if(i == j){
+                            strike++;
+                        } else{
+                            ball++;
+                        }
                     }
                 }
             }
 
-            System.out.println(count+"번째 시도 : "+ball+"B"+strike+"S");
+            if (strike == 3) {
+                System.out.println(count+"번째 시도 : "+strike+"S");
+            } else if (ball==3) {
+                System.out.println(count+"번째 시도 : "+ ball + "B");
+            } else {
+                System.out.println(count+"번째 시도 : "+ball+"B"+strike+"S");
+            }
 
             if (strike == 3) {
                 System.out.println(count + "번만에 맞히셨습니다.");
@@ -73,6 +91,3 @@ public class BaseBall {
         }
     }
 }
-
-
-

@@ -17,7 +17,7 @@ public class Calculator3 {
 
         double answer = 0;
 
-        answer = operate.operation(firstNumber, secondNumber);
+        answer = operate.operate(firstNumber, secondNumber);
 
         return answer;
     }

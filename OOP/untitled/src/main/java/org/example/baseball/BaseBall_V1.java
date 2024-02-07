@@ -1,13 +1,11 @@
 package org.example.baseball;
 
-import java.text.DecimalFormat;
 import java.util.Arrays;
 import java.util.Scanner;
-import java.util.stream.Stream;
 
 import static java.lang.Math.random;
 
-public class BaseBall {
+public class BaseBall_V1 {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
 
@@ -45,9 +43,6 @@ public class BaseBall {
                 continue;
             }
 
-
-
-
             user[0] = number / 100;
             user[1] = (number % 100) / 10;
             user[2] = number % 10;
@@ -56,10 +51,6 @@ public class BaseBall {
                 continue;
             }
             for (int i = 0; i < user.length; i++) {
-//                if(number < 100 || number > 1000){
-//                    System.out.println("세자리숫자를 적어주세요");
-//                    continue;
-//                }
                 for (int j = 0; j < user.length; j++) {
                     if (com[j]==user[i]){
                         if(i == j){
@@ -86,7 +77,6 @@ public class BaseBall {
             } else {
                 strike = 0;
                 ball=0;
-                continue;
             }
         }
     }

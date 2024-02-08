@@ -20,7 +20,7 @@ public class BaseBall_V1 {
             com[2] = (int) (random() * 10);
         }
 
-        System.out.println("com = " + Arrays.toString(com));
+//        System.out.println("com = " + Arrays.toString(com));
 
         int[] user = new int[3];
         System.out.println("컴퓨터가 숫자를 생성했습니다. 답을 맞춰보세요");

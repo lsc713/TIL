@@ -1,4 +1,4 @@
-package org.example.doit;
+package org.example.doit.chap01;
 
 import java.util.Scanner;
 

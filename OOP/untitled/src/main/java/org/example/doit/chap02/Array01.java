@@ -133,7 +133,7 @@ class 질문거리 {
         rcopy(x1, x2);
         System.out.println(Arrays.toString(x2));
 
-        Integer a = new Integer(3); // 1. 이건 왜 빨간색인데 실행되지 궂이 쓸필요없는데 써서 경고한듯?
+        Integer a = 3; // 1. 이건 왜 빨간색인데 실행되지 궂이 쓸필요없는데 써서 경고한듯?
         int b = ++a; //후위형 증가연산자니까 4인걸 알겠음.
         String c = new String("z"); //님 왜 주소 나와야하는거아닌가 참조형 변수니까.. ㅋㅋ
         String d = new String("z"); // 오.. 원래 그냥 주소값안에있는 값이 나오나 보네.

@@ -5,7 +5,7 @@ import org.example.case3.Calculator3;
 
 import java.util.Arrays;
 
-public class Main {
+public class Main1 {
     public static void main(String[] args) {
         /**
          * Calculator1의 경우. 추가적인 연산자가 있다면 메서드의 코드를 하나하나 수정해줘야함.

@@ -1,4 +1,4 @@
-n,m=list(map(int,input().split()))
+n,m=map(int,input().split())
 arr = []
 for i in range(n):
     arr.append(int(input()))
@@ -8,5 +8,7 @@ for i in arr:
     if m >= i:
         cnt+=m//i
         m%=i
-        
+
 print(cnt)
+
+

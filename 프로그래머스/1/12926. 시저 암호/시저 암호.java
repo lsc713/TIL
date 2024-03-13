@@ -19,7 +19,7 @@ class Solution {
 
             int offset = Character.isUpperCase(c) ? 'A' : 'a';
             int position = c-offset;
-            position = (position+n) % ('Z'-'A'+1);
+            position = (position+n) % 26;
             return (char) (offset + position);
         }
 

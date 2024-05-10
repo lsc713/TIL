@@ -34,33 +34,29 @@
 #
 from sys import stdin
 from collections import deque
-
 input = stdin.readline
-
 R, C = map(int, input().split())
 graph = []
 
-pos_j = []  # 지훈 위치
-pos_f = []  # 불 위치
+posJ = []  # 지훈 위치
+posF = []  # 불 위치
 for i in range(R):
     tmp = list(input())
     for j in range(C):
         if tmp[j] == "J":
-            pos_j.append((i, j))
+            posJ.append((i, j))
         elif tmp[j] == "F":
-            pos_f.append((i, j))
+            posF.append((i, j))
     graph.append(tmp)
 
 
 q = deque()
-q.append((pos_j[0][0], pos_j[0][1], "J"))  # 지훈이가 먼저 이동
-graph[pos_j[0][0]][pos_j[0][1]] = 0
-
-if len(pos_f) != 0:
-    for (r, c) in pos_f:
+q.append((posJ[0][0], posJ[0][1], "J"))  # 지훈이가 먼저 이동
+graph[posJ[0][0]][posJ[0][1]] = 0
+if len(posF) != 0:
+    for (r, c) in posF:
         q.append((r, c, "F"))
         graph[r][c] = "#"
-
 
 def bfs():
     dx = [-1, 1, 0, 0]  # 상하좌우
@@ -82,7 +78,5 @@ def bfs():
                     graph[nx][ny] = graph[x][y] + 1
                     q.append((nx, ny, "J"))
     return "IMPOSSIBLE"
-
-
 print(bfs())
 

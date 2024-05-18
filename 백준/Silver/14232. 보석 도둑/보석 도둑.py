@@ -1,11 +1,22 @@
-n = int(input())
-arr = []
-for i in range(2,int(n**0.5)+1):
+def factorize(n):
+    factors = []
+    i = 2
+    while i * i <= n:
+        while n % i == 0:
+            factors.append(i)
+            n //= i
+        i += 1
+    if n > 1:
+        factors.append(n)
+    return factors
 
-    while n%i==0:
-        arr.append(i)
-        n//=i
-if n != 1:
-    arr.append(n)
-print(len(arr))
-print(*arr)
+def solve(n):
+    factors = factorize(n)
+    
+    print(len(factors))
+    print(*factors)
+
+import sys
+input = sys.stdin.readline
+n = int(input())
+solve(n)

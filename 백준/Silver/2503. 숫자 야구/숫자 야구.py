@@ -1,43 +1,24 @@
 import sys
-
 input = sys.stdin.readline
-n = int(input())
-arr = [list(map(str, input().split())) for _ in range(n)]
-answer = 0
 
-for i in range(1, 10):
-    for j in range(1, 10):
-        for k in range(1, 10):
+n=int(input())
+guesses=[list(map(int,input().split())) for _ in range(n)]
 
-            counter = 0
+def is_valid(num,guess,strikes,balls):
+    num=str(num)
+    guess = str(guess)
+    strike_count = sum([num[i]==guess[i] for i in range(3)])
+    ball_count = len(set(num) & set(guess)) - strike_count
+    return strike_count == strikes and ball_count == balls
 
-            if (i == j or j == k or k == i):
-                continue
-            for ar in arr:
-                check = list(ar[0])
-                strike = int(ar[1])
-                ball = int(ar[2])
-                scount = 0
-                bcount = 0
-                if i == int(check[0]):
-                    scount += 1
-                if j == int(check[1]):
-                    scount += 1
-                if k == int(check[2]):
-                    scount += 1
-                if i != int(check[0]) and (i == int(check[1]) or i == int(check[2])):
-                    bcount += 1
-                if j != int(check[1]) and (j == int(check[0]) or j == int(check[2])):
-                    bcount += 1
-                if k != int(check[2]) and (k == int(check[0]) or k == int(check[1])):
-                    bcount += 1
+valid_numbers=[]
 
-                if strike != scount:
-                    break
-                if ball != bcount:
-                    break
-                counter += 1
-            if counter == n:
-                answer += 1
-print(answer)
 
+for num in range(123,988):
+    num_str=str(num)
+    if len(set(num_str)) != 3 or '0' in num_str:
+        continue
+    if all(is_valid(num,guess[0],guess[1],guess[2]) for guess in guesses):
+        valid_numbers.append(num)
+
+print(len(valid_numbers))

@@ -1,23 +1,35 @@
 import java.util.*;
 class Solution {
     public int solution(int[] array) {
-        int answer = 0;
-        int[] arr = new int[1000];
-        for(int i =0;i<array.length;i++){
-            arr[array[i]] = arr[array[i]]+1;
+        int answer = -1;
+        int k=-1;
+        for(int i =0 ;i<array.length;i++){
+            if(array[i]>k){
+                k=array[i];
+            }
         }
-        boolean isUnique= true;
-        int cnt=0;
-        for(int i =0;i<arr.length;i++){
-            if(arr[i]>cnt){
-                cnt=arr[i];
+        int[] count = new int[k+1];
+        for(int i =0 ;i<array.length;i++){
+            count[array[i]]++;
+        }
+        for(int i =0 ;i<count.length;i++){
+            answer= Math.max(answer,count[i]);
+        }
+        System.out.println(answer);
+        for(int i =0 ;i<count.length;i++){
+            if(answer == count[i]){
                 answer=i;
-                isUnique=true;
-            }
-            else if(arr[i]==cnt){
-                isUnique=false;
+                break;
             }
         }
-        return isUnique ? answer: -1;
+        System.out.println(answer);
+        
+        Arrays.sort(count);
+        System.out.println(Arrays.toString(count));
+        if(count[count.length-1]==count[count.length-2]){
+            return -1;
+        }
+        
+        return answer;
     }
 }

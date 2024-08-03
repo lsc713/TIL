@@ -2,50 +2,28 @@ import java.util.*;
 class Solution {
     public int[][] solution(int[][] data, String ext, int val_ext, String sort_by) {
         
-        String[] ext1 = {"code", "date", "maximum", "remain"};
-        int cnt=0;
-        int tmp=0;
-        for(int i = 0;i<ext1.length;i++){
-            if(sort_by.equals(ext1[i])){
-                tmp=i;
-            }
-            if(ext.equals(ext1[i])){
-                for(int j = 0 ; j<data.length;j++){
-                    if(data[j][i]<val_ext){
-                      cnt++;  
-                    }    
-                }
-            }else{
-                continue;
-            }
-        }
-        int[][] answer = new int[cnt][4];
-        int idx=0;
-        for(int i = 0;i<ext1.length;i++){
-            if(ext.equals(ext1[i])){
-                for(int a = 0 ; a<data.length;a++){
-                    if(data[a][i]<val_ext){
-                      for(int j = 0 ; j<4;j++){
-                        answer[idx][j] = data[a][j];
-                      }
-                      idx++;
-                    }    
-                }
+        Map<String, Integer> mapp = new HashMap<>();
+        mapp.put("code",0);
+        mapp.put("date",1);
+        mapp.put("maximum",2);
+        mapp.put("remain",3);
+        
+        int extIdx = mapp.get(ext);
+        int sortIdx = mapp.get(sort_by);
+        
+        List<int[]> list = new ArrayList<>();
+        for(int[] val : data){
+            if(val[extIdx]<val_ext){
+                list.add(val);
             }
         }
         
-        for(int i = answer.length-1;i>0;i--){
-            for(int j = 0 ; j<i;j++){
-                if(answer[j][tmp]>answer[j+1][tmp]){
-                    
-                    int[] temp=answer[j];
-                    answer[j] = answer[j+1];
-                    answer[j+1]=temp;
-                }
-
-            }
-        }
+        list.sort(Comparator.comparingInt(a->a[sortIdx]));
         
+        int[][] answer = new int[list.size()][4];
+        for(int i = 0;i<list.size();i++){
+            answer[i] = list.get(i);
+        }
         return answer;
     }
 }

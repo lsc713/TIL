@@ -9,25 +9,19 @@ class Solution
 		Scanner sc = new Scanner(System.in);
 		int T;
 		T=sc.nextInt();
-sc.nextLine();
 		for(int test_case = 1; test_case <= T; test_case++)
 		{
-            int answer=0;
+            String input = sc.next();
             StringBuilder sb = new StringBuilder();
-		String input = sc.nextLine();
-            char[] arr = input.toCharArray();
-            for(int i = 0 ; i < arr.length;i++){
-            	if(arr[i]=='1'){
-                	answer++;
-                    for(int j =i+1;j<arr.length;j++){
-                    	if(arr[j]=='1'){
-                        	arr[j]='0';
-                        }else{
-                            arr[j]='1';
-                        }
-                    }
+            int answer=0;
+            int change =0;
+            for(int i = 0 ; i < input.length();i++){
+            	if(input.charAt(i)-'0' != change){
+                    answer++;
+                	change = input.charAt(i)-'0';
                 }
             }
+			
             sb.append("#"+test_case+" " +answer);
             System.out.println(sb);
 		}

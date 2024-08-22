@@ -1,19 +1,26 @@
-import java.util.*;
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.util.StringTokenizer;
 
 class Main{
     
-    public static void main(String[] args){
-        Scanner sc = new Scanner(System.in);
-        int n = sc.nextInt();
-        int m = sc.nextInt();
+    public static void main(String[] args) throws Exception{
+//        Scanner sc = new Scanner(System.in);
+    	BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+    	StringTokenizer st;
+    	StringBuilder sb = new StringBuilder();
+    	st = new StringTokenizer(br.readLine());
+        int n = Integer.parseInt(st.nextToken());
+        int m = Integer.parseInt(st.nextToken());
         char[][] board1 = new char[8][8];
         char[][] board2 = new char[8][8];
         int answer=Integer.MAX_VALUE;
         //BWBWBWBW WBWBWBWB
-        sc.nextLine();
+        
         char[][] map = new char[n][m];
         for(int i = 0; i < n ;i++){
-            String input = sc.nextLine();
+            String input = br.readLine();
             map[i] = input.toCharArray();
         }
         
@@ -43,11 +50,10 @@ class Main{
                     }    
                 }
                 answer=Math.min(answer, Math.min(min1, min2));
-                
             }
         }
-        
-        System.out.println(answer);
+        sb.append(answer);
+        System.out.println(sb);
         
     }
 }

@@ -11,18 +11,26 @@ class Solution {
             //순위가 나옴.
             int per = map.get(callings[i]);
             
+            //순위 변환.
+
+            
+            
             String temp = players[per-1];
             players[per-1] = players[per];
             players[per] = temp;
-           //플레이어의 위치 변경 시켰음 
-           
-            map.put(players[per-1], per-1);
-            map.put(players[per], per);
             
-//            System.out.println(players[per-1]+(per-1));
-//            System.out.println(map);
+            
+            map.put(players[per-1], per);
+            map.put(players[per], per-1);
             
         }
         return players;
     }
+    
+    public static void main(String[] args) {
+		Solution s = new Solution();
+		String[] p = {"mumu", "soe", "poe", "kai", "mine"};
+		String[] c = {"kai", "kai", "mine", "mine"};
+		s.solution(p,c);
+	}
 }

@@ -1,33 +1,24 @@
 class Solution {
-    // public String solution(String s, int n) {
-//         String answer = "";
-//         for (int i = 0; i < s.length(); i++) {
-//             char ch = s.charAt(i);
-
-//             if (Character.isLowerCase(ch)) {
-//                 ch = (char) ((ch - 'a' + n) % 26 + 'a');
-//             } else if (Character.isUpperCase(ch)) {
-//                 ch = (char) ((ch - 'A' + n) % 26 + 'A');
-//             }
-//             answer+=ch;
-//         }
-//         return answer;
-    // }
-    
-    private char push(char c, int n){
-            if (!Character.isAlphabetic(c))return c;
-
-            int offset = Character.isUpperCase(c) ? 'A' : 'a';
-            int position = c-offset;
-            position = (position+n) % 26;
-            return (char) (offset + position);
-        }
-
-        public String solution(String s, int n) {
-            StringBuilder sb = new StringBuilder();
-            for (char c : s.toCharArray()){
-                sb.append(push(c, n));
+    public String solution(String s, int n) {
+        String answer = "";
+        
+        char[] c = s.toCharArray();
+        for(int i = 0;i<c.length;i++){
+            if(c[i]==' '){
+                answer+=" ";
+                continue;
             }
-            return sb.toString();
+            if(c[i]+n > 122){
+                answer+=(char)(c[i]+n-26);
+            }else if(c[i] <96 &&c[i]+n > 90){
+                answer+=(char)(c[i]+n-26);    
+            }else{
+                answer+=(char)(c[i]+n);
+            }
+            
+            
         }
+        
+        return answer;
+    }
 }

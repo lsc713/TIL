@@ -1,34 +1,24 @@
-import java.util.Scanner;
-import java.io.FileInputStream;
+import java.io.BufferedReader;
+import java.io.InputStreamReader;
+import java.util.StringTokenizer;
 
-class Solution
-{
-    public static void main(String args[]) throws Exception
-    {
+class Solution {
+    public static void main(String args[]) throws Exception {
+        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+        int T = Integer.parseInt(br.readLine());
 
-        Scanner sc = new Scanner(System.in);
-        int T;
-        T=sc.nextInt();
+        for (int test_case = 1; test_case <= T; test_case++) {
+            StringTokenizer st = new StringTokenizer(br.readLine());
+            int N = Integer.parseInt(st.nextToken());
+            int M = Integer.parseInt(st.nextToken());
 
-        for(int test_case = 1; test_case <= T; test_case++)
-        {
-            int n =sc.nextInt();
-            int m =sc.nextInt();
-            String answer="ON";
-            String str = Integer.toBinaryString(m);
-            int length = str.length();
-            if(n>length){
-                answer = "OFF";
-            }else{
-                for(int i=0;i<n;i++){
-                    if(str.charAt(str.length()-1-i)=='0'){
-                        answer="OFF";
-                        break;
-                    }
-                }
+            int mask = (1 << N) - 1;
+
+            if ((M & mask) == mask) {
+                System.out.println("#" + test_case + " ON");
+            } else {
+                System.out.println("#" + test_case + " OFF");
             }
-            System.out.println("#"+test_case+" "+answer);
-
         }
     }
 }

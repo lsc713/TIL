@@ -1,32 +1,22 @@
-
 import java.util.Scanner;
 
 
 class Solution
 {
-    static int m,l,answer;
-	public static void main(String args[]) throws Exception
-	{
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
 
-		Scanner sc = new Scanner(System.in);
+        for(int tc =1;tc<=10;tc++) {
+            int a = sc.nextInt();
 
-
-		for(int test_case = 1; test_case <= 10; test_case++)
-		{
-		int n = sc.nextInt();
-            m =sc.nextInt();
-            l=sc.nextInt();
-            answer=1;
-            recur(0);
-
-            System.out.println("#"+n+" "+answer);
-		}
-	}
-    static void recur(int depth){
-    	if(depth==l){
-        	return;
+            int n =sc.nextInt();
+            int m =sc.nextInt();
+            System.out.println("#"+a+" "+pow(n,m));
         }
-        answer*=m;
-        recur(depth+1);
+    }
+
+    static int pow(int n, int m) {
+        if(m==1)return n;
+        return m%2==0 ? pow(n,m/2)*pow(n,m/2):pow(n,(m-1)/2)*pow(n,(m-1)/2)*n;
     }
 }

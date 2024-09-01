@@ -1,81 +1,52 @@
-/////////////////////////////////////////////////////////////////////////////////////////////
-// 기본 제공코드는 임의 수정해도 관계 없습니다. 단, 입출력 포맷 주의
-// 아래 표준 입출력 예제 필요시 참고하세요.
-// 표준 입력 예제
-// int a;
-// double b;
-// char g;
-// String var;
-// long AB;
-// a = sc.nextInt();                           // int 변수 1개 입력받는 예제
-// b = sc.nextDouble();                        // double 변수 1개 입력받는 예제
-// g = sc.nextByte();                          // char 변수 1개 입력받는 예제
-// var = sc.next();                            // 문자열 1개 입력받는 예제
-// AB = sc.nextLong();                         // long 변수 1개 입력받는 예제
-/////////////////////////////////////////////////////////////////////////////////////////////
-// 표준 출력 예제
-// int a = 0;                            
-// double b = 1.0;               
-// char g = 'b';
-// String var = "ABCDEFG";
-// long AB = 12345678901234567L;
-//System.out.println(a);                       // int 변수 1개 출력하는 예제
-//System.out.println(b); 		       						 // double 변수 1개 출력하는 예제
-//System.out.println(g);		       						 // char 변수 1개 출력하는 예제
-//System.out.println(var);		       				   // 문자열 1개 출력하는 예제
-//System.out.println(AB);		       				     // long 변수 1개 출력하는 예제
-/////////////////////////////////////////////////////////////////////////////////////////////
 import java.util.Scanner;
 import java.io.FileInputStream;
-
-/*
-   사용하는 클래스명이 Solution 이어야 하므로, 가급적 Solution.java 를 사용할 것을 권장합니다.
-   이러한 상황에서도 동일하게 java Solution 명령으로 프로그램을 수행해볼 수 있습니다.
- */
 class Solution
 {
+    static char[] c;
+    static int n;
     static int answer;
-	public static void main(String args[]) throws Exception
-	{
-		
-		Scanner sc = new Scanner(System.in);
-		int T;
-		T=sc.nextInt();
-	
-        
-sc.nextLine();
-        answer=0;
-		for(int test_case = 1; test_case <= T; test_case++)
-		{
-            answer=0;
-            StringBuilder sb = new StringBuilder();
-		String str = sc.next();
-            int n = sc.nextInt();
-            char[] c = str.toCharArray();
-           if(n>str.length()){
-           	n=str.length();
-           }
-            dfs(0,0,c,n);
-            sb.append("#").append(test_case).append(" ").append(answer);
-            System.out.println(sb);
-		}
-	}
-    static void dfs(int start,int depth, char[] arr,int n){
-    	if (depth==n){
-        	String result = new String(arr);
-            answer = Math.max(Integer.parseInt(result),answer);
+    public static void main(String args[]) throws Exception
+    {
+        Scanner sc = new Scanner(System.in);
+        int T;
+        T=sc.nextInt();
+
+        for(int test_case = 1; test_case <= T; test_case++)
+        {
+            initInput(sc);
+            if (n > c.length) {
+                n = c.length;
+            }
+            recur(0);
+            System.out.println("#"+test_case+" "+answer);
+        }
+    }
+
+    static void recur(int depth){
+        if(depth==n){
+            answer=Math.max(answer,Integer.parseInt(new String(c)));
             return;
         }
-        for(int i = 0;i<arr.length-1;i++){
-        	for(int j =i+1;j<arr.length;j++){
-            	char tmp = arr[i];
-                arr[i]=arr[j];
-                arr[j]=tmp;
-                dfs(start,depth+1,arr,n);
-                tmp = arr[i];
-                arr[i]=arr[j];
-                arr[j]=tmp;
+        for(int i=0;i<c.length;i++){
+            for(int j=i+1;j<c.length;j++){
+                swap(j, i);
+                recur(depth+1);
+                swap(j, i);
             }
         }
     }
+
+    private static void swap(int depth, int i) {
+        char tmp = c[i];
+        c[i] = c[depth];
+        c[depth] = tmp;
+    }
+
+    private static void initInput(Scanner sc) {
+        String input = sc.next();
+        n = sc.nextInt();
+        c = input.toCharArray();
+        answer=0;
+    }
 }
+

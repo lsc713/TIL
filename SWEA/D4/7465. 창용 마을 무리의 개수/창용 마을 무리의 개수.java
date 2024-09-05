@@ -1,51 +1,52 @@
-import java.util.ArrayList;
-import java.util.List;
 import java.util.Scanner;
+import java.io.FileInputStream;
 
-public class Solution {
-	static int[] parent;
-	static int n;
-	public static void main(String[] args) {
+class Solution
+{
+    static int answer;
+    static int[] arr;
+	public static void main(String args[]) throws Exception
+	{
 		Scanner sc = new Scanner(System.in);
-		int T = sc.nextInt();
-		for(int tc =1;tc<=T;tc++) {
-			n = sc.nextInt();
-			int m =sc.nextInt();
-			
-			parent = new int[n+1];
-			makeSet();
-			
-			for(int i = 0 ; i<m;i++) {
-				int a =sc.nextInt();
-				int b =sc.nextInt();
-				
-				if(findSet(a)!=findSet(b)) {
-					union(a,b);
-				}
-			}
-			int answer=0;
-			for(int i = 1 ; i <=n;i++) {
-				if(findSet(i)==i) {
-					answer++;
-				}
-			}
-			System.out.println("#"+tc+" "+answer);
+		int T;
+        
+		T=sc.nextInt();
+		
+		for(int test_case = 1; test_case <= T; test_case++)
+		{
+            answer=0;
+			int n =sc.nextInt();
+            arr = new int[n+1];
+            int m = sc.nextInt();
+            for(int i = 1;i<=n;i++){
+            	makeSet(i);
+            }
+            for(int i = 0 ;i<m;i++){
+            	int a = sc.nextInt();
+                int b= sc.nextInt();
+                if(findSet(a) != findSet(b)){
+                	union(a,b);
+                }
+            }
+            for(int i =1;i<=n;i++){
+            	if(arr[i] == i){
+                answer++;
+                }
+            }
+            
+            System.out.println("#"+test_case+" "+answer);
 		}
 	}
-	static void makeSet() {
-		for(int i = 1 ; i <=n;i++) {
-			parent[i] = i;//각 목의 주인은 본인
-		}
-	}
-	
-	static void union(int x,int y) {
-		parent[findSet(y)] = findSet(x);
-	}
-	
-	static int findSet(int x) {
-		if(x!=parent[x]) {
-			parent[x] = findSet(parent[x]);
-		}
-		return parent[x];
-	}
+    static int findSet(int x){
+    	if(x!=arr[x]){
+        	arr[x] = findSet(arr[x]);
+        }
+        return arr[x];
+    }
+    static void union(int x,int y){
+    	arr[findSet(y)] = findSet(x);
+    }
+    static void makeSet(int x){
+    	arr[x] = x;
+    }
 }

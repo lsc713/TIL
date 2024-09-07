@@ -1,47 +1,45 @@
-
-import java.util.*;
+import java.util.Scanner;
 import java.io.FileInputStream;
-
-
 class Solution
 {
     static int N;
     static int B;
-    static int[] arr;
-    static boolean visited[];
     static int answer;
+    static int[] members;
+    static boolean[] visited;
 	public static void main(String args[]) throws Exception
 	{
-
 		Scanner sc = new Scanner(System.in);
 		int T;
 		T=sc.nextInt();
 
 		for(int test_case = 1; test_case <= T; test_case++)
 		{
-		N=sc.nextInt();B=sc.nextInt();
-            arr = new int[N];
-            answer =Integer.MAX_VALUE;
-            for(int i = 0;i<N;i++){
-            	arr[i] = sc.nextInt();
-            }
-            sum=0;
+            N = sc.nextInt();
             visited = new boolean[N];
-            recur(0,0);
-            System.out.println("#"+test_case+" "+answer);
+            members = new int[N];
+            B = sc.nextInt();
+            for(int i = 0 ; i <N;i++){
+            	members[i] = sc.nextInt();
+            }
+            answer=Integer.MAX_VALUE;
+			 recur(0,0);
+			System.out.println("#"+test_case+" "+answer);
 		}//tc
 	}//main
     static int sum;
-    static void recur(int depth,int cnt){
-    	if(depth==N|| sum-B>=0){
-        	answer = Math.min(answer,sum-B);
+    static void recur(int depth,int at){
+    	if(depth == N || sum>=B){
+            answer = Math.min(answer,sum-B);
+        	return;
         }
-        for(int i=cnt;i<N;i++){
+        
+        for(int i =at;i<N;i++){
         	if(!visited[i]){
             	visited[i] = true;
-                sum+=arr[i];
+                sum+=members[i];
                 recur(depth+1,i);
-                sum-=arr[i];
+                sum-=members[i];                
                 visited[i]=false;
             }
         }

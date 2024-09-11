@@ -1,19 +1,20 @@
-import java.util.*;
+import java.util.Scanner;
 
-public class Main{
-    public static void main(String[] args){
-        Scanner sc = new Scanner(System.in);
-        int a = sc.nextInt();
-        int cnt = 1;
-        int b = 0;
-        int c = 1;
-        while(a!=1){
-            c += b*6;
-            if(a<=c)break;
-            b++;
-            cnt++;
+public class Main {
+
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        int n = scanner.nextInt();
+        int roomNum = 1;
+        int idx = 1;
+        int index =0;
+        while (n != 1) {
+            roomNum = roomNum + (6* index);
+            if(roomNum >=n)break;
+            idx++;
+            index++;
         }
-        
-        System.out.println(cnt);
+        System.out.println(idx);
     }
+
 }

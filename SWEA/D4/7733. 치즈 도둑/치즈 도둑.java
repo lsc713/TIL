@@ -1,72 +1,72 @@
 import java.util.Arrays;
+import java.util.LinkedList;
+import java.util.Queue;
 import java.util.Scanner;
 
 public class Solution {
 
 	static int n;
 	static int[][] map;
-	static int max;
-	static int answer;
-	static int result;
 	static int[] dx = {-1,1,0,0};
 	static int[] dy = {0,0,-1,1};
-	static boolean[][] visited;
 	public static void main(String[] args) {
 		Scanner sc = new Scanner(System.in);
 		int T = sc.nextInt();
-		for(int tc = 1;tc<=T;tc++) {
-			n = sc.nextInt();
+		for(int t=1;t<=T;t++) {
+			n =sc.nextInt();
+			int max = 0;
+			result =0;
 			map = new int[n][n];
-			
-			max=0;
-			answer=0;
-			result=0;
-			for(int i = 0 ; i < n ; i++) {
-				for(int j = 0 ; j < n ; j++) {
+			for(int i = 0 ; i < n;i++) {
+				for(int j=0;j<n;j++) {
 					map[i][j] = sc.nextInt();
-					max = Math.max(max, map[i][j]);
-				}
-			}
-			for(int i = 0;i<max;i++) {
-				visited = new boolean[n][n];
-				result=0;
-				for(int k = 0;k<n;k++) {
-					for(int j = 0 ; j<n;j++) {
-						if(i >= map[k][j]) {
-							visited[k][j]=true;
-							map[k][j] = -1;
-						}
+					if(max<map[i][j]) {
+						max = map[i][j];
 					}
 				}
-				for(int k = 0;k<n;k++) {
-					for(int j = 0 ; j<n;j++) {
-//						System.out.println(visited[k][j]+" "+k+" "+j);
-						if(!visited[k][j]) {
-//							System.out.println("??");
-							visited[k][j]=true;
-							
-//							System.out.println(result);
-							bfs(k,j);
-							result++;
-						}
-					}
-				}
-				answer=Math.max(answer, result);
-				//덩어리를 알려면 맵을 순회하며 4방으로 돌게시키는건 어때?
 			}
-			System.out.println("#"+tc+" "+answer);
+			
+			for(int i = 0 ;i<max;i++) {
+				int answer=0;
+				simul(i,new boolean[n][n],answer);
+			}
+			
+			System.out.println("#"+t+" "+result);
+			
 		}
 	}
-	
-	static void bfs(int x,int y) {
-		for(int i =0;i<4;i++) {
-			int nx = x+dx[i];
-			int ny = y+dy[i];
-			if(0<=nx&&nx<n&&0<=ny&&ny<n&&!visited[nx][ny]&&map[nx][ny] != -1) {
-				visited[nx][ny]=true;
-				bfs(nx,ny);
+	static void simul(int day, boolean[][] visited,int answer) {
+		for(int i = 0;  i < n ; i++) {
+			for(int j =0;j<n;j++) {
+				if(map[i][j]<=day) {
+					visited[i][j]=true;
+					map[i][j]=-1;
+				}
+			}
+		}//치즈먹기 끝 이하는 계산되어야함.
+//		for(boolean[] arr: visited) {
+//			System.out.println(Arrays.toString(arr));	
+//		}
+//		System.out.println("==================");
+		for(int i = 0 ; i < n ; i ++) {
+			for(int j =0;j<n;j++) {
+				if(visited[i][j])continue;
+				visited[i][j]=true;
+				bfs(i,j,visited);
+				answer++;
 			}
 		}
-		
+		result = Math.max(answer, result);
+	}
+	static int result;
+	static void bfs(int x, int y,boolean visited[][]) {
+		for(int k=0;k<4;k++) {
+			int nx = x+dx[k];
+			int ny = y+dy[k];
+			if((0<=nx&&nx<n&&0<=ny&&ny<n)&&visited[nx][ny]==false&&map[nx][ny]!=-1) {
+				visited[nx][ny]=true;
+				bfs(nx,ny,visited);
+			}
+		}
 	}
 }

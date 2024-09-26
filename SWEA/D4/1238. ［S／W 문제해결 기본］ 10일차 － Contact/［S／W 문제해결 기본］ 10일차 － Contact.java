@@ -1,61 +1,47 @@
-import java.util.*;
-import java.io.FileInputStream;
+import java.util.ArrayList;
+import java.util.LinkedList;
+import java.util.List;
+import java.util.Queue;
+import java.util.Scanner;
 
-class Solution
-{
-    static int len,st,answer;
-    static boolean visited[];
-    static class Node{
-    	int B,W;
-        public Node(int B,int W){
-        	this.B = B;
-            this.W= W;
-        }
-    }
-    static List<Node>[] arr;
-	public static void main(String args[]) throws Exception
-	{
+public class Solution {
+	public static void main(String[] args) {
 		Scanner sc = new Scanner(System.in);
-
-		for(int test_case = 1; test_case <= 10; test_case++)
-		{
-len = sc.nextInt();
-            st = sc.nextInt();
-            arr = new ArrayList[101];
-            visited = new boolean[101];
-            for(int i = 1 ; i < 101;i++){
-            	arr[i] = new ArrayList<>();
-            }
-            for(int i =0;i<len/2;i++){
-            	int from = sc.nextInt();
-                int to = sc.nextInt();
-                arr[from].add(new Node(to,1));
-            }
-            answer=find(st);
-            System.out.println("#"+test_case+" "+answer);
-		}//tc
-	}//main
-    static Queue<Integer> q = new LinkedList<>();
-    static int find(int st){
-    	q.add(st);
-        visited[st]=true;
-        int max =0;
-        while(!q.isEmpty()){
-            int size = q.size();
-				int curr = 0;
-
-            for(int i = 0 ; i < size;i++){
-        		int tmp = q.poll();                
-                curr = Math.max(curr,tmp);
-                for(Node node : arr[tmp]){
-            		if(!visited[node.B]){
-                		q.add(node.B);
-                    	visited[node.B]=true;
-                	}
-	            }
-            }
-	max = curr;
-        }
-        return max;
-    }//find
+		for(int t=1;t<=10;t++) {
+			int n = sc.nextInt();
+			int st= sc.nextInt();
+			boolean visited[] = new boolean[101];
+			List<Integer>[] list = new ArrayList[101];
+			for(int i =1;i<=100;i++) {
+				list[i]= new ArrayList<>();
+			}
+			for(int i = 0 ; i<n/2;i++) {
+				int from = sc.nextInt();
+				int to =sc.nextInt();
+				list[from].add(to);
+			}
+			Queue<Integer> q = new LinkedList<>();
+			q.add(st);
+			visited[st]=true;
+			int answer=0;
+			while(!q.isEmpty()) {
+				int size = q.size();
+				int result=0;
+				for(int i = 0 ; i<size;i++) {
+					int tmp = q.poll();
+					result=Math.max(result, tmp);
+					for(int val : list[tmp]) {
+						if(!visited[val]) {
+							visited[val]=true;
+							q.add(val);
+						}
+					}
+					
+				}
+//				System.out.println(result);
+				answer=result;
+			}
+			System.out.println("#"+t+" "+answer);
+		}
+	}
 }

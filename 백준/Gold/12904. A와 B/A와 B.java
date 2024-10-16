@@ -1,27 +1,27 @@
-import java.util.*;
-class Main{
+import java.util.Scanner;
 
-    public static void main(String[] args) {
-        Scanner scanner = new Scanner(System.in);
-        String s = scanner.nextLine();
-        String t = scanner.nextLine();
-
-        while(s.length() != t.length()){
-            StringBuilder sb = new StringBuilder();
-            if(t.charAt(t.length()-1)=='B'){
-                t = t.substring(0, t.length()-1);
-                t = String.valueOf(sb.append(t).reverse());
-            }else if (t.charAt(t.length()-1)=='A'){
-                t = t.substring(0, t.length()-1);
-            }
-            if (t.length() == s.length()){
-                break;
-            }
-        }
-        if (t.equals(s)){
-            System.out.println(1);
-        }else{
-            System.out.println(0);
-        }
-    }
+public class Main {
+	public static void main(String[] args) {
+		Scanner sc = new Scanner(System.in);
+		String s = sc.next();
+		String t = sc.next();
+		recur(s,t);
+		System.out.println(temp?1:0);
+	}
+	static boolean temp=false;
+	static void recur(String s, String t) {
+		if(t.length()==s.length()) {
+			if(t.equals(s)) {
+				temp=true;
+			}
+			return;
+		}
+		if(t.charAt(t.length()-1)=='A') {
+			recur(s,t.substring(0,t.length()-1));
+		}
+		if(t.charAt(t.length()-1)=='B') {
+//			System.out.println(new StringBuilder(t.substring(0,t.length()-1)).reverse().toString());
+			recur(s,new StringBuilder(t.substring(0,t.length()-1)).reverse().toString());
+		}
+	}
 }

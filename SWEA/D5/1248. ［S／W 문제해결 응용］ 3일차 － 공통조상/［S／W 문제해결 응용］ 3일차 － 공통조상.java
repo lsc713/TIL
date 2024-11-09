@@ -1,71 +1,62 @@
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
 import java.util.ArrayList;
-import java.util.LinkedList;
 import java.util.List;
-import java.util.Queue;
-import java.util.Random;
-import java.util.Scanner;
+import java.util.StringTokenizer;
 
 public class Solution {
-    static int V,E,a1,a2,size;
-    static class Node{
-        int parent,left,right;
-    }
-    static Node[] list;
+    static int[] parent;
+    static List<Integer>[] children;
     static boolean[] visited;
-    public static void main(String[] args) {
-        Scanner scanner = new Scanner(System.in);
-        int T  = scanner.nextInt();
-        for (int t = 1; t <= T; t++) {
-            V = scanner.nextInt();
-            E = scanner.nextInt();
-            list = new Node[V+1];
+    static int V,E,v1,v2;
+    public static void main(String[] args) throws IOException {
+        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+        StringBuilder sb = new StringBuilder();
+        int T = Integer.parseInt(br.readLine());
+        for(int t = 1;t<=T;t++){
+            StringTokenizer st = new StringTokenizer(br.readLine());
+            V = Integer.parseInt(st.nextToken());
+            E = Integer.parseInt(st.nextToken());
+            parent = new int[V+1];
             visited = new boolean[V+1];
+            children = new ArrayList[V+1];
             for (int i = 1; i <= V; i++) {
-                list[i] = new Node();
+                children[i] = new ArrayList<>();
             }
-            a1 = scanner.nextInt();
-            a2 = scanner.nextInt();
-            for (int e= 0; e < E; e++) {
-                int parent = scanner.nextInt();
-                int child = scanner.nextInt();
-                if (list[parent].left==0) list[parent].left = child;
-                else list[parent].right = child;
-                list[child].parent = parent;
+            v1 = Integer.parseInt(st.nextToken());
+            v2 = Integer.parseInt(st.nextToken());
+            st = new StringTokenizer(br.readLine());
+            for (int i = 0; i < E; i++) {
+                int p = Integer.parseInt(st.nextToken());
+                int c = Integer.parseInt(st.nextToken());
+                parent[c]=p;
+                children[p].add(c);
             }
-            int commonPrent = 1;
-            while(true){
-                if (a1!=1){
-                    int parent = list[a1].parent;
-                    if (visited[parent]) {
-                        commonPrent = parent;
-                        break;
-                    }
-                    visited[parent] = true;
-                    a1 = parent;
+            int cur=v1;
+            while (cur != 0) {
+                visited[cur] = true;
+                cur = parent[cur];
+            }
+            cur=v2;
+            int commonAncestor = v2;
+            while (cur != 0) {
+                if(visited[cur]){
+                    commonAncestor = cur;
+                    break;
                 }
-                if (a2!=1){
-                    int parent = list[a2].parent;
-                    if (visited[parent]) {
-                        commonPrent = parent;
-                        break;
-                    }
-                    visited[parent] = true;
-                    a2 = parent;
-                }
+                cur = parent[cur];
             }
-            size =0;
-            preOrder(commonPrent);
-            System.out.println("#"+t+" "+commonPrent+" "+size);
+            int size = subTreeSize(commonAncestor);
+            sb.append("#").append(t).append(" ").append(commonAncestor).append(" ").append(size).append("\n");
         }
+        System.out.println(sb);
     }
-
-    static void preOrder(int idx) {
-        size++;
-        if (list[idx].left != 0) {
-            preOrder(list[idx].left);
+    private static int subTreeSize(int ancestor){
+        int size =1;
+        for (int val : children[ancestor]) {
+            size+=subTreeSize(val);
         }
-        if (list[idx].right != 0) {
-            preOrder(list[idx].right);
-        }
+        return size;
     }
 }

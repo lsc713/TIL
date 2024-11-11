@@ -1,4 +1,5 @@
 import java.util.Arrays;
+import java.util.Queue;
 import java.util.Scanner;
 
 public class Main {
@@ -14,30 +15,23 @@ public class Main {
 		Arrays.sort(arr);
 		long answer=3_000_000_000L;
 		for(int i = 0 ;i<N-2;i++) {
-			int idx = i;
-			int L = idx+1;
+			int L = i+1;
 			int R = arr.length-1;
 			while(L<R) {
-				long mid = arr[idx]+arr[L]+arr[R];
-				if(mid==0) {
-					System.out.println(arr[idx]+" "+arr[L]+" "+arr[R]);
+				long sum = arr[i]+arr[L]+arr[R];
+				if(sum==0) {
+					System.out.println(arr[i]+" "+arr[L]+" "+arr[R]);
 					return;
 				}
-				if(mid>0) {
-					if(answer>Math.abs(arr[idx]+arr[L]+arr[R])) {
-						answer=Math.abs(arr[idx]+arr[L]+arr[R]);
-						temp[0]=arr[idx];
-						temp[1]=arr[L];
-						temp[2]=arr[R];
-					}
+				if(answer>Math.abs(arr[i]+arr[L]+arr[R])) {
+					answer=Math.abs(arr[i]+arr[L]+arr[R]);
+					temp[0]=arr[i];
+					temp[1]=arr[L];
+					temp[2]=arr[R];
+				}
+				if(sum>0) {
 					R--;
 				}else {
-					if(answer>Math.abs(arr[idx]+arr[L]+arr[R])) {
-						answer=Math.abs(arr[idx]+arr[L]+arr[R]);
-						temp[0]=arr[idx];
-						temp[1]=arr[L];
-						temp[2]=arr[R];
-					}
 					L++;
 				}
 			}

@@ -16,8 +16,7 @@ class Solution {
             head = head.next;
         }
         boolean answer = true;
-        while(!stack.isEmpty()) {
-            if(stack.size()==1)return true;
+        while(stack.size()>1) {
             if(stack.pollFirst()!=stack.pollLast()) {
                 answer = false;
                 break;

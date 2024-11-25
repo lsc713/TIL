@@ -37,6 +37,7 @@
 | [0024-swap-nodes-in-pairs](https://github.com/lsc713/TIL/tree/master/0024-swap-nodes-in-pairs) |
 | [0206-reverse-linked-list](https://github.com/lsc713/TIL/tree/master/0206-reverse-linked-list) |
 | [0234-palindrome-linked-list](https://github.com/lsc713/TIL/tree/master/0234-palindrome-linked-list) |
+| [0328-odd-even-linked-list](https://github.com/lsc713/TIL/tree/master/0328-odd-even-linked-list) |
 ## Two Pointers
 |  |
 | ------- |

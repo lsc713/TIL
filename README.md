@@ -21,6 +21,7 @@
 | ------- |
 | [0121-best-time-to-buy-and-sell-stock](https://github.com/lsc713/TIL/tree/master/0121-best-time-to-buy-and-sell-stock) |
 | [0238-product-of-array-except-self](https://github.com/lsc713/TIL/tree/master/0238-product-of-array-except-self) |
+| [0739-daily-temperatures](https://github.com/lsc713/TIL/tree/master/0739-daily-temperatures) |
 ## Prefix Sum
 |  |
 | ------- |
@@ -49,6 +50,7 @@
 | [0020-valid-parentheses](https://github.com/lsc713/TIL/tree/master/0020-valid-parentheses) |
 | [0234-palindrome-linked-list](https://github.com/lsc713/TIL/tree/master/0234-palindrome-linked-list) |
 | [0316-remove-duplicate-letters](https://github.com/lsc713/TIL/tree/master/0316-remove-duplicate-letters) |
+| [0739-daily-temperatures](https://github.com/lsc713/TIL/tree/master/0739-daily-temperatures) |
 ## Recursion
 |  |
 | ------- |
@@ -74,4 +76,5 @@
 |  |
 | ------- |
 | [0316-remove-duplicate-letters](https://github.com/lsc713/TIL/tree/master/0316-remove-duplicate-letters) |
+| [0739-daily-temperatures](https://github.com/lsc713/TIL/tree/master/0739-daily-temperatures) |
 <!---LeetCode Topics End-->

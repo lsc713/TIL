@@ -3,13 +3,11 @@ class MyCircularDeque {
     private int front;
     private int rear;
     private int size;
-    private int capacity;
 
     public MyCircularDeque(int k) {
-        capacity = k + 1; // 원형 큐 구현에서 빈 공간 하나를 추가로 사용
-        deque = new int[capacity];
+        deque = new int[k];
         front = 0;
-        rear = 0;
+        rear = -1;
         size = 0;
     }
 
@@ -17,8 +15,9 @@ class MyCircularDeque {
         if (isFull()) {
             return false;
         }
-        front = (front - 1 + capacity) % capacity; // 원형 큐 계산
+        front = (front - 1 + deque.length) % deque.length; // 원형 큐 계산
         deque[front] = value;
+        if(size==0)rear=front;
         size++;
         return true;
     }
@@ -27,8 +26,10 @@ class MyCircularDeque {
         if (isFull()) {
             return false;
         }
+        
+        rear = (rear + 1) % deque.length; // 원형 큐 계산
         deque[rear] = value;
-        rear = (rear + 1) % capacity; // 원형 큐 계산
+        if(size==0)front=rear;
         size++;
         return true;
     }
@@ -37,7 +38,7 @@ class MyCircularDeque {
         if (isEmpty()) {
             return false;
         }
-        front = (front + 1) % capacity; // 원형 큐 계산
+        front = (front + 1) % deque.length; // 원형 큐 계산
         size--;
         return true;
     }
@@ -46,7 +47,7 @@ class MyCircularDeque {
         if (isEmpty()) {
             return false;
         }
-        rear = (rear - 1 + capacity) % capacity; // 원형 큐 계산
+        rear = (rear - 1 + deque.length) % deque.length; // 원형 큐 계산
         size--;
         return true;
     }
@@ -59,10 +60,7 @@ class MyCircularDeque {
     }
 
     public int getRear() {
-        if (isEmpty()) {
-            return -1;
-        }
-        return deque[(rear - 1 + capacity) % capacity]; // 마지막 요소 가져오기
+        return isEmpty() ? -1 : deque[rear];
     }
 
     public boolean isEmpty() {
@@ -70,6 +68,6 @@ class MyCircularDeque {
     }
 
     public boolean isFull() {
-        return size == capacity - 1;
+        return size == deque.length;
     }
 }

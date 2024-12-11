@@ -1,9 +1,9 @@
-import java.util.*;
 class Solution {
-    List<List<Integer>> answer;
+    List<List<Integer>> answer = new ArrayList<>();
     
+    boolean[] visited;
     public List<List<Integer>> permute(int[] nums) {
-        answer = new ArrayList<>();
+        visited = new boolean[nums.length];
         List<Integer> result = new ArrayList<>();
         perm(0,result,nums);
         return answer;
@@ -14,10 +14,13 @@ class Solution {
             return;
         }
         for(int i = 0 ; i <nums.length;i++){
-                if(result.contains(nums[i]))continue;
+            if(!visited[i]){
+                visited[i]=true;
                 result.add(nums[i]);
                 perm(idx+1,result,nums);
                 result.remove(Integer.valueOf(nums[i]));
+                visited[i]=false;
+            }
             
         }
         

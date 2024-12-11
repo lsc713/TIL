@@ -12,7 +12,7 @@ class Solution {
         for(int i = at;i<n;i++){
             result.add(i+1);
             combination(idx+1,i+1,n,k,result,answer);
-            result.remove(Integer.valueOf(i+1));
+            result.remove(result.size()-1);
         }
     }
 }

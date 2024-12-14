@@ -161,6 +161,7 @@
 ## Depth-First Search
 |  |
 | ------- |
+| [0104-maximum-depth-of-binary-tree](https://github.com/lsc713/TIL/tree/master/0104-maximum-depth-of-binary-tree) |
 | [0200-number-of-islands](https://github.com/lsc713/TIL/tree/master/0200-number-of-islands) |
 | [0207-course-schedule](https://github.com/lsc713/TIL/tree/master/0207-course-schedule) |
 | [0332-reconstruct-itinerary](https://github.com/lsc713/TIL/tree/master/0332-reconstruct-itinerary) |
@@ -169,6 +170,7 @@
 ## Breadth-First Search
 |  |
 | ------- |
+| [0104-maximum-depth-of-binary-tree](https://github.com/lsc713/TIL/tree/master/0104-maximum-depth-of-binary-tree) |
 | [0200-number-of-islands](https://github.com/lsc713/TIL/tree/master/0200-number-of-islands) |
 | [0207-course-schedule](https://github.com/lsc713/TIL/tree/master/0207-course-schedule) |
 | [0744-network-delay-time](https://github.com/lsc713/TIL/tree/master/0744-network-delay-time) |
@@ -213,4 +215,12 @@
 | ------- |
 | [0744-network-delay-time](https://github.com/lsc713/TIL/tree/master/0744-network-delay-time) |
 | [0803-cheapest-flights-within-k-stops](https://github.com/lsc713/TIL/tree/master/0803-cheapest-flights-within-k-stops) |
+## Tree
+|  |
+| ------- |
+| [0104-maximum-depth-of-binary-tree](https://github.com/lsc713/TIL/tree/master/0104-maximum-depth-of-binary-tree) |
+## Binary Tree
+|  |
+| ------- |
+| [0104-maximum-depth-of-binary-tree](https://github.com/lsc713/TIL/tree/master/0104-maximum-depth-of-binary-tree) |
 <!---LeetCode Topics End-->

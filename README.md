@@ -50,6 +50,7 @@
 | [0023-merge-k-sorted-lists](https://github.com/lsc713/TIL/tree/master/0023-merge-k-sorted-lists) |
 | [0024-swap-nodes-in-pairs](https://github.com/lsc713/TIL/tree/master/0024-swap-nodes-in-pairs) |
 | [0092-reverse-linked-list-ii](https://github.com/lsc713/TIL/tree/master/0092-reverse-linked-list-ii) |
+| [0148-sort-list](https://github.com/lsc713/TIL/tree/master/0148-sort-list) |
 | [0206-reverse-linked-list](https://github.com/lsc713/TIL/tree/master/0206-reverse-linked-list) |
 | [0234-palindrome-linked-list](https://github.com/lsc713/TIL/tree/master/0234-palindrome-linked-list) |
 | [0328-odd-even-linked-list](https://github.com/lsc713/TIL/tree/master/0328-odd-even-linked-list) |
@@ -59,6 +60,7 @@
 ## Two Pointers
 |  |
 | ------- |
+| [0148-sort-list](https://github.com/lsc713/TIL/tree/master/0148-sort-list) |
 | [0234-palindrome-linked-list](https://github.com/lsc713/TIL/tree/master/0234-palindrome-linked-list) |
 ## Stack
 |  |
@@ -123,6 +125,7 @@
 | [0023-merge-k-sorted-lists](https://github.com/lsc713/TIL/tree/master/0023-merge-k-sorted-lists) |
 | [0105-construct-binary-tree-from-preorder-and-inorder-traversal](https://github.com/lsc713/TIL/tree/master/0105-construct-binary-tree-from-preorder-and-inorder-traversal) |
 | [0108-convert-sorted-array-to-binary-search-tree](https://github.com/lsc713/TIL/tree/master/0108-convert-sorted-array-to-binary-search-tree) |
+| [0148-sort-list](https://github.com/lsc713/TIL/tree/master/0148-sort-list) |
 | [0215-kth-largest-element-in-an-array](https://github.com/lsc713/TIL/tree/master/0215-kth-largest-element-in-an-array) |
 | [0347-top-k-frequent-elements](https://github.com/lsc713/TIL/tree/master/0347-top-k-frequent-elements) |
 ## Heap (Priority Queue)
@@ -137,6 +140,7 @@
 |  |
 | ------- |
 | [0023-merge-k-sorted-lists](https://github.com/lsc713/TIL/tree/master/0023-merge-k-sorted-lists) |
+| [0148-sort-list](https://github.com/lsc713/TIL/tree/master/0148-sort-list) |
 ## Hash Table
 |  |
 | ------- |
@@ -158,6 +162,7 @@
 ## Sorting
 |  |
 | ------- |
+| [0148-sort-list](https://github.com/lsc713/TIL/tree/master/0148-sort-list) |
 | [0215-kth-largest-element-in-an-array](https://github.com/lsc713/TIL/tree/master/0215-kth-largest-element-in-an-array) |
 | [0347-top-k-frequent-elements](https://github.com/lsc713/TIL/tree/master/0347-top-k-frequent-elements) |
 ## Bucket Sort

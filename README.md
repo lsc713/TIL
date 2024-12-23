@@ -31,6 +31,7 @@
 | [0238-product-of-array-except-self](https://github.com/lsc713/TIL/tree/master/0238-product-of-array-except-self) |
 | [0347-top-k-frequent-elements](https://github.com/lsc713/TIL/tree/master/0347-top-k-frequent-elements) |
 | [0739-daily-temperatures](https://github.com/lsc713/TIL/tree/master/0739-daily-temperatures) |
+| [0792-binary-search](https://github.com/lsc713/TIL/tree/master/0792-binary-search) |
 | [0817-design-hashmap](https://github.com/lsc713/TIL/tree/master/0817-design-hashmap) |
 | [0859-design-circular-deque](https://github.com/lsc713/TIL/tree/master/0859-design-circular-deque) |
 | [0860-design-circular-queue](https://github.com/lsc713/TIL/tree/master/0860-design-circular-queue) |
@@ -291,6 +292,7 @@
 |  |
 | ------- |
 | [0108-convert-sorted-array-to-binary-search-tree](https://github.com/lsc713/TIL/tree/master/0108-convert-sorted-array-to-binary-search-tree) |
+| [0792-binary-search](https://github.com/lsc713/TIL/tree/master/0792-binary-search) |
 | [0799-minimum-distance-between-bst-nodes](https://github.com/lsc713/TIL/tree/master/0799-minimum-distance-between-bst-nodes) |
 | [0975-range-sum-of-bst](https://github.com/lsc713/TIL/tree/master/0975-range-sum-of-bst) |
 | [1114-binary-search-tree-to-greater-sum-tree](https://github.com/lsc713/TIL/tree/master/1114-binary-search-tree-to-greater-sum-tree) |

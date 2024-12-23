@@ -30,6 +30,7 @@
 | [0215-kth-largest-element-in-an-array](https://github.com/lsc713/TIL/tree/master/0215-kth-largest-element-in-an-array) |
 | [0238-product-of-array-except-self](https://github.com/lsc713/TIL/tree/master/0238-product-of-array-except-self) |
 | [0347-top-k-frequent-elements](https://github.com/lsc713/TIL/tree/master/0347-top-k-frequent-elements) |
+| [0349-intersection-of-two-arrays](https://github.com/lsc713/TIL/tree/master/0349-intersection-of-two-arrays) |
 | [0739-daily-temperatures](https://github.com/lsc713/TIL/tree/master/0739-daily-temperatures) |
 | [0792-binary-search](https://github.com/lsc713/TIL/tree/master/0792-binary-search) |
 | [0817-design-hashmap](https://github.com/lsc713/TIL/tree/master/0817-design-hashmap) |
@@ -64,6 +65,7 @@
 | ------- |
 | [0148-sort-list](https://github.com/lsc713/TIL/tree/master/0148-sort-list) |
 | [0234-palindrome-linked-list](https://github.com/lsc713/TIL/tree/master/0234-palindrome-linked-list) |
+| [0349-intersection-of-two-arrays](https://github.com/lsc713/TIL/tree/master/0349-intersection-of-two-arrays) |
 ## Stack
 |  |
 | ------- |
@@ -153,6 +155,7 @@
 | [0208-implement-trie-prefix-tree](https://github.com/lsc713/TIL/tree/master/0208-implement-trie-prefix-tree) |
 | [0242-valid-anagram](https://github.com/lsc713/TIL/tree/master/0242-valid-anagram) |
 | [0347-top-k-frequent-elements](https://github.com/lsc713/TIL/tree/master/0347-top-k-frequent-elements) |
+| [0349-intersection-of-two-arrays](https://github.com/lsc713/TIL/tree/master/0349-intersection-of-two-arrays) |
 | [0782-jewels-and-stones](https://github.com/lsc713/TIL/tree/master/0782-jewels-and-stones) |
 | [0817-design-hashmap](https://github.com/lsc713/TIL/tree/master/0817-design-hashmap) |
 ## Hash Function
@@ -171,6 +174,7 @@
 | [0215-kth-largest-element-in-an-array](https://github.com/lsc713/TIL/tree/master/0215-kth-largest-element-in-an-array) |
 | [0242-valid-anagram](https://github.com/lsc713/TIL/tree/master/0242-valid-anagram) |
 | [0347-top-k-frequent-elements](https://github.com/lsc713/TIL/tree/master/0347-top-k-frequent-elements) |
+| [0349-intersection-of-two-arrays](https://github.com/lsc713/TIL/tree/master/0349-intersection-of-two-arrays) |
 ## Bucket Sort
 |  |
 | ------- |
@@ -292,6 +296,7 @@
 |  |
 | ------- |
 | [0108-convert-sorted-array-to-binary-search-tree](https://github.com/lsc713/TIL/tree/master/0108-convert-sorted-array-to-binary-search-tree) |
+| [0349-intersection-of-two-arrays](https://github.com/lsc713/TIL/tree/master/0349-intersection-of-two-arrays) |
 | [0792-binary-search](https://github.com/lsc713/TIL/tree/master/0792-binary-search) |
 | [0799-minimum-distance-between-bst-nodes](https://github.com/lsc713/TIL/tree/master/0799-minimum-distance-between-bst-nodes) |
 | [0975-range-sum-of-bst](https://github.com/lsc713/TIL/tree/master/0975-range-sum-of-bst) |

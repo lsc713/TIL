@@ -19,6 +19,7 @@
 ## Array
 |  |
 | ------- |
+| [0033-search-in-rotated-sorted-array](https://github.com/lsc713/TIL/tree/master/0033-search-in-rotated-sorted-array) |
 | [0039-combination-sum](https://github.com/lsc713/TIL/tree/master/0039-combination-sum) |
 | [0046-permutations](https://github.com/lsc713/TIL/tree/master/0046-permutations) |
 | [0056-merge-intervals](https://github.com/lsc713/TIL/tree/master/0056-merge-intervals) |
@@ -295,6 +296,7 @@
 ## Binary Search Tree
 |  |
 | ------- |
+| [0033-search-in-rotated-sorted-array](https://github.com/lsc713/TIL/tree/master/0033-search-in-rotated-sorted-array) |
 | [0108-convert-sorted-array-to-binary-search-tree](https://github.com/lsc713/TIL/tree/master/0108-convert-sorted-array-to-binary-search-tree) |
 | [0349-intersection-of-two-arrays](https://github.com/lsc713/TIL/tree/master/0349-intersection-of-two-arrays) |
 | [0792-binary-search](https://github.com/lsc713/TIL/tree/master/0792-binary-search) |

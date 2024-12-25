@@ -50,6 +50,7 @@
 |  |
 | ------- |
 | [0121-best-time-to-buy-and-sell-stock](https://github.com/lsc713/TIL/tree/master/0121-best-time-to-buy-and-sell-stock) |
+| [0241-different-ways-to-add-parentheses](https://github.com/lsc713/TIL/tree/master/0241-different-ways-to-add-parentheses) |
 | [0803-cheapest-flights-within-k-stops](https://github.com/lsc713/TIL/tree/master/0803-cheapest-flights-within-k-stops) |
 ## Linked List
 |  |
@@ -90,10 +91,12 @@
 | [0024-swap-nodes-in-pairs](https://github.com/lsc713/TIL/tree/master/0024-swap-nodes-in-pairs) |
 | [0206-reverse-linked-list](https://github.com/lsc713/TIL/tree/master/0206-reverse-linked-list) |
 | [0234-palindrome-linked-list](https://github.com/lsc713/TIL/tree/master/0234-palindrome-linked-list) |
+| [0241-different-ways-to-add-parentheses](https://github.com/lsc713/TIL/tree/master/0241-different-ways-to-add-parentheses) |
 ## Math
 |  |
 | ------- |
 | [0002-add-two-numbers](https://github.com/lsc713/TIL/tree/master/0002-add-two-numbers) |
+| [0241-different-ways-to-add-parentheses](https://github.com/lsc713/TIL/tree/master/0241-different-ways-to-add-parentheses) |
 | [0371-sum-of-two-integers](https://github.com/lsc713/TIL/tree/master/0371-sum-of-two-integers) |
 ## String
 |  |
@@ -102,6 +105,7 @@
 | [0017-letter-combinations-of-a-phone-number](https://github.com/lsc713/TIL/tree/master/0017-letter-combinations-of-a-phone-number) |
 | [0020-valid-parentheses](https://github.com/lsc713/TIL/tree/master/0020-valid-parentheses) |
 | [0208-implement-trie-prefix-tree](https://github.com/lsc713/TIL/tree/master/0208-implement-trie-prefix-tree) |
+| [0241-different-ways-to-add-parentheses](https://github.com/lsc713/TIL/tree/master/0241-different-ways-to-add-parentheses) |
 | [0242-valid-anagram](https://github.com/lsc713/TIL/tree/master/0242-valid-anagram) |
 | [0297-serialize-and-deserialize-binary-tree](https://github.com/lsc713/TIL/tree/master/0297-serialize-and-deserialize-binary-tree) |
 | [0316-remove-duplicate-letters](https://github.com/lsc713/TIL/tree/master/0316-remove-duplicate-letters) |
@@ -332,4 +336,8 @@
 |  |
 | ------- |
 | [0239-sliding-window-maximum](https://github.com/lsc713/TIL/tree/master/0239-sliding-window-maximum) |
+## Memoization
+|  |
+| ------- |
+| [0241-different-ways-to-add-parentheses](https://github.com/lsc713/TIL/tree/master/0241-different-ways-to-add-parentheses) |
 <!---LeetCode Topics End-->

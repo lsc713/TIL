@@ -29,6 +29,7 @@
 | [0121-best-time-to-buy-and-sell-stock](https://github.com/lsc713/TIL/tree/master/0121-best-time-to-buy-and-sell-stock) |
 | [0136-single-number](https://github.com/lsc713/TIL/tree/master/0136-single-number) |
 | [0167-two-sum-ii-input-array-is-sorted](https://github.com/lsc713/TIL/tree/master/0167-two-sum-ii-input-array-is-sorted) |
+| [0169-majority-element](https://github.com/lsc713/TIL/tree/master/0169-majority-element) |
 | [0200-number-of-islands](https://github.com/lsc713/TIL/tree/master/0200-number-of-islands) |
 | [0215-kth-largest-element-in-an-array](https://github.com/lsc713/TIL/tree/master/0215-kth-largest-element-in-an-array) |
 | [0238-product-of-array-except-self](https://github.com/lsc713/TIL/tree/master/0238-product-of-array-except-self) |
@@ -137,6 +138,7 @@
 | [0105-construct-binary-tree-from-preorder-and-inorder-traversal](https://github.com/lsc713/TIL/tree/master/0105-construct-binary-tree-from-preorder-and-inorder-traversal) |
 | [0108-convert-sorted-array-to-binary-search-tree](https://github.com/lsc713/TIL/tree/master/0108-convert-sorted-array-to-binary-search-tree) |
 | [0148-sort-list](https://github.com/lsc713/TIL/tree/master/0148-sort-list) |
+| [0169-majority-element](https://github.com/lsc713/TIL/tree/master/0169-majority-element) |
 | [0215-kth-largest-element-in-an-array](https://github.com/lsc713/TIL/tree/master/0215-kth-largest-element-in-an-array) |
 | [0240-search-a-2d-matrix-ii](https://github.com/lsc713/TIL/tree/master/0240-search-a-2d-matrix-ii) |
 | [0347-top-k-frequent-elements](https://github.com/lsc713/TIL/tree/master/0347-top-k-frequent-elements) |
@@ -159,6 +161,7 @@
 | [0003-longest-substring-without-repeating-characters](https://github.com/lsc713/TIL/tree/master/0003-longest-substring-without-repeating-characters) |
 | [0017-letter-combinations-of-a-phone-number](https://github.com/lsc713/TIL/tree/master/0017-letter-combinations-of-a-phone-number) |
 | [0105-construct-binary-tree-from-preorder-and-inorder-traversal](https://github.com/lsc713/TIL/tree/master/0105-construct-binary-tree-from-preorder-and-inorder-traversal) |
+| [0169-majority-element](https://github.com/lsc713/TIL/tree/master/0169-majority-element) |
 | [0208-implement-trie-prefix-tree](https://github.com/lsc713/TIL/tree/master/0208-implement-trie-prefix-tree) |
 | [0242-valid-anagram](https://github.com/lsc713/TIL/tree/master/0242-valid-anagram) |
 | [0347-top-k-frequent-elements](https://github.com/lsc713/TIL/tree/master/0347-top-k-frequent-elements) |
@@ -178,6 +181,7 @@
 | ------- |
 | [0056-merge-intervals](https://github.com/lsc713/TIL/tree/master/0056-merge-intervals) |
 | [0148-sort-list](https://github.com/lsc713/TIL/tree/master/0148-sort-list) |
+| [0169-majority-element](https://github.com/lsc713/TIL/tree/master/0169-majority-element) |
 | [0215-kth-largest-element-in-an-array](https://github.com/lsc713/TIL/tree/master/0215-kth-largest-element-in-an-array) |
 | [0242-valid-anagram](https://github.com/lsc713/TIL/tree/master/0242-valid-anagram) |
 | [0347-top-k-frequent-elements](https://github.com/lsc713/TIL/tree/master/0347-top-k-frequent-elements) |
@@ -189,6 +193,7 @@
 ## Counting
 |  |
 | ------- |
+| [0169-majority-element](https://github.com/lsc713/TIL/tree/master/0169-majority-element) |
 | [0347-top-k-frequent-elements](https://github.com/lsc713/TIL/tree/master/0347-top-k-frequent-elements) |
 ## Quickselect
 |  |

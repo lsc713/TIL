@@ -38,6 +38,7 @@
 | [0240-search-a-2d-matrix-ii](https://github.com/lsc713/TIL/tree/master/0240-search-a-2d-matrix-ii) |
 | [0347-top-k-frequent-elements](https://github.com/lsc713/TIL/tree/master/0347-top-k-frequent-elements) |
 | [0349-intersection-of-two-arrays](https://github.com/lsc713/TIL/tree/master/0349-intersection-of-two-arrays) |
+| [0406-queue-reconstruction-by-height](https://github.com/lsc713/TIL/tree/master/0406-queue-reconstruction-by-height) |
 | [0739-daily-temperatures](https://github.com/lsc713/TIL/tree/master/0739-daily-temperatures) |
 | [0792-binary-search](https://github.com/lsc713/TIL/tree/master/0792-binary-search) |
 | [0817-design-hashmap](https://github.com/lsc713/TIL/tree/master/0817-design-hashmap) |
@@ -200,6 +201,7 @@
 | [0242-valid-anagram](https://github.com/lsc713/TIL/tree/master/0242-valid-anagram) |
 | [0347-top-k-frequent-elements](https://github.com/lsc713/TIL/tree/master/0347-top-k-frequent-elements) |
 | [0349-intersection-of-two-arrays](https://github.com/lsc713/TIL/tree/master/0349-intersection-of-two-arrays) |
+| [0406-queue-reconstruction-by-height](https://github.com/lsc713/TIL/tree/master/0406-queue-reconstruction-by-height) |
 ## Bucket Sort
 |  |
 | ------- |
@@ -346,4 +348,12 @@
 |  |
 | ------- |
 | [0241-different-ways-to-add-parentheses](https://github.com/lsc713/TIL/tree/master/0241-different-ways-to-add-parentheses) |
+## Binary Indexed Tree
+|  |
+| ------- |
+| [0406-queue-reconstruction-by-height](https://github.com/lsc713/TIL/tree/master/0406-queue-reconstruction-by-height) |
+## Segment Tree
+|  |
+| ------- |
+| [0406-queue-reconstruction-by-height](https://github.com/lsc713/TIL/tree/master/0406-queue-reconstruction-by-height) |
 <!---LeetCode Topics End-->

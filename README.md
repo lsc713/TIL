@@ -39,6 +39,7 @@
 | [0347-top-k-frequent-elements](https://github.com/lsc713/TIL/tree/master/0347-top-k-frequent-elements) |
 | [0349-intersection-of-two-arrays](https://github.com/lsc713/TIL/tree/master/0349-intersection-of-two-arrays) |
 | [0406-queue-reconstruction-by-height](https://github.com/lsc713/TIL/tree/master/0406-queue-reconstruction-by-height) |
+| [0621-task-scheduler](https://github.com/lsc713/TIL/tree/master/0621-task-scheduler) |
 | [0739-daily-temperatures](https://github.com/lsc713/TIL/tree/master/0739-daily-temperatures) |
 | [0792-binary-search](https://github.com/lsc713/TIL/tree/master/0792-binary-search) |
 | [0817-design-hashmap](https://github.com/lsc713/TIL/tree/master/0817-design-hashmap) |
@@ -119,6 +120,7 @@
 | ------- |
 | [0122-best-time-to-buy-and-sell-stock-ii](https://github.com/lsc713/TIL/tree/master/0122-best-time-to-buy-and-sell-stock-ii) |
 | [0316-remove-duplicate-letters](https://github.com/lsc713/TIL/tree/master/0316-remove-duplicate-letters) |
+| [0621-task-scheduler](https://github.com/lsc713/TIL/tree/master/0621-task-scheduler) |
 ## Monotonic Stack
 |  |
 | ------- |
@@ -160,6 +162,7 @@
 | [0215-kth-largest-element-in-an-array](https://github.com/lsc713/TIL/tree/master/0215-kth-largest-element-in-an-array) |
 | [0239-sliding-window-maximum](https://github.com/lsc713/TIL/tree/master/0239-sliding-window-maximum) |
 | [0347-top-k-frequent-elements](https://github.com/lsc713/TIL/tree/master/0347-top-k-frequent-elements) |
+| [0621-task-scheduler](https://github.com/lsc713/TIL/tree/master/0621-task-scheduler) |
 | [0744-network-delay-time](https://github.com/lsc713/TIL/tree/master/0744-network-delay-time) |
 | [0803-cheapest-flights-within-k-stops](https://github.com/lsc713/TIL/tree/master/0803-cheapest-flights-within-k-stops) |
 ## Merge Sort
@@ -179,6 +182,7 @@
 | [0242-valid-anagram](https://github.com/lsc713/TIL/tree/master/0242-valid-anagram) |
 | [0347-top-k-frequent-elements](https://github.com/lsc713/TIL/tree/master/0347-top-k-frequent-elements) |
 | [0349-intersection-of-two-arrays](https://github.com/lsc713/TIL/tree/master/0349-intersection-of-two-arrays) |
+| [0621-task-scheduler](https://github.com/lsc713/TIL/tree/master/0621-task-scheduler) |
 | [0782-jewels-and-stones](https://github.com/lsc713/TIL/tree/master/0782-jewels-and-stones) |
 | [0817-design-hashmap](https://github.com/lsc713/TIL/tree/master/0817-design-hashmap) |
 ## Hash Function
@@ -202,6 +206,7 @@
 | [0347-top-k-frequent-elements](https://github.com/lsc713/TIL/tree/master/0347-top-k-frequent-elements) |
 | [0349-intersection-of-two-arrays](https://github.com/lsc713/TIL/tree/master/0349-intersection-of-two-arrays) |
 | [0406-queue-reconstruction-by-height](https://github.com/lsc713/TIL/tree/master/0406-queue-reconstruction-by-height) |
+| [0621-task-scheduler](https://github.com/lsc713/TIL/tree/master/0621-task-scheduler) |
 ## Bucket Sort
 |  |
 | ------- |
@@ -211,6 +216,7 @@
 | ------- |
 | [0169-majority-element](https://github.com/lsc713/TIL/tree/master/0169-majority-element) |
 | [0347-top-k-frequent-elements](https://github.com/lsc713/TIL/tree/master/0347-top-k-frequent-elements) |
+| [0621-task-scheduler](https://github.com/lsc713/TIL/tree/master/0621-task-scheduler) |
 ## Quickselect
 |  |
 | ------- |

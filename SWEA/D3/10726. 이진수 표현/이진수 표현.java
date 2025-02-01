@@ -2,23 +2,23 @@ import java.io.BufferedReader;
 import java.io.InputStreamReader;
 import java.util.StringTokenizer;
 
-class Solution {
-    public static void main(String args[]) throws Exception {
+public class Solution {
+
+    public static void main(String[] args) throws Exception{
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+        StringTokenizer st;
         int T = Integer.parseInt(br.readLine());
-
-        for (int test_case = 1; test_case <= T; test_case++) {
-            StringTokenizer st = new StringTokenizer(br.readLine());
-            int N = Integer.parseInt(st.nextToken());
-            int M = Integer.parseInt(st.nextToken());
-
-            int mask = (1 << N) - 1;
-
-            if ((M & mask) == mask) {
-                System.out.println("#" + test_case + " ON");
-            } else {
-                System.out.println("#" + test_case + " OFF");
+        StringBuilder sb = new StringBuilder();
+        for (int t = 1; t <= T; t++) {
+            st = new StringTokenizer(br.readLine());
+            int n = Integer.parseInt(st.nextToken());
+            int m = Integer.parseInt(st.nextToken());
+            String result = "OFF";
+            if ((m & ((1 << n) -1)) == ((1<<n)-1)) {
+                result = "ON";
             }
+            sb.append("#"+t+" " +result+"\n");
         }
+        System.out.println(sb);
     }
 }

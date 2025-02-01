@@ -1,47 +1,29 @@
-import java.util.Arrays;
-import java.util.Scanner;
-import java.io.FileInputStream;
 
-class Solution
-{
-	public static void main(String args[]) throws Exception
-	{
+import java.io.BufferedReader;
+import java.io.InputStreamReader;
+import java.util.StringTokenizer;
 
-		Scanner sc = new Scanner(System.in);
-		int T;
-		T=sc.nextInt();
+public class Solution {
 
-		for(int test_case = 1; test_case <= T; test_case++)
-		{
-            int n =sc.nextInt();
-            int temp= n;
-            int answer=0;
-            int cnt=0;
-            StringBuilder sb = new StringBuilder();
-            int[] arr = new int[10];
-            int pyo=0;
-            loop:while(pyo!=1){
-                if(cnt>0){
-                	
-                	n+=temp;
+    public static void main(String[] args) throws Exception{
+        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+        StringTokenizer st;
+        int T = Integer.parseInt(br.readLine());
+        StringBuilder sb = new StringBuilder();
+        for (int t = 1; t <= T; t++) {
+            int n = Integer.parseInt(br.readLine());
+            int bit = (1<<10)-1;
+            int result = n;
+            int temp = 0;
+            while(bit != temp){
+                char[] arr = String.valueOf(result).toCharArray();
+                for(int i = 0 ; i < arr.length ; i++){
+                    temp = temp | (1 << (arr[i] - '0'));
                 }
-            	String tmp = String.valueOf(n);
-            	String[] strArr = tmp.split("");
-            	for(int i=0;i<strArr.length;i++){
-            		arr[Integer.parseInt(strArr[i])]++;
-            	}
-            	cnt++;
-            	for(int i = 0 ; i <arr.length;i++){
-            		if(arr[i] ==0){
-                    	
-                		continue loop;
-                	}
-            	}
-            	pyo=1;
+                result += n;
             }
-            answer=cnt*temp;
-            sb.append("#").append(test_case).append(" ").append(answer);
-            System.out.println(sb);
-		}
-	}
+            sb.append("#"+t+ " "+(result-n)).append("\n");
+        }
+        System.out.println(sb);
+    }
 }

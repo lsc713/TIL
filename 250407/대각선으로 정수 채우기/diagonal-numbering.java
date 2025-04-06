@@ -5,21 +5,25 @@ public class Main {
         Scanner sc = new Scanner(System.in);
         int n = sc.nextInt();
         int m = sc.nextInt();
-        int[][] map = new int[n][m];
-        int cnt =1;
-        for(int k=0;k<n+m-1;k++){
-            for(int i = 0 ; i < n ; i++){
-                for(int j =0;j<m;j++){
-                    if(k==i+j){
-                        map[i][j]=cnt;
-                        cnt++;
+        int count = 1;
+        int[][] arr = new int[100][100];
+        for(int row = 0 ; row < n ; row++){
+            for(int col=0;col<m;col++){
+                if(arr[row][col]==0){
+                    int curCol=col;
+                    int curRow=row;
+                    while(curCol>=0&&curRow<n){
+                        arr[curRow][curCol]=count;
+                        curRow++;
+                        curCol--;
+                        count++;
                     }
                 }
             }
         }
-        for(int i = 0 ; i < n ; i++){
-            for(int j = 0 ; j <m;j++){
-                System.out.printf("%d ", map[i][j]);
+        for(int row = 0 ; row<n;row++){
+            for(int col=0;col<m;col++){
+                System.out.print(arr[row][col]+" ");
             }
             System.out.println();
         }

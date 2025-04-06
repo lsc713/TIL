@@ -9,25 +9,15 @@ public class Main {
             arr[i] = sc.nextInt();
         }
         int result =0;
-        int max = Integer.MIN_VALUE;
-        int min = Integer.MAX_VALUE;
-        int minIdx=0;
         for(int i = 0 ; i < n ; i ++){
-            
-            if(min>arr[i]){
-                min=arr[i];
-                minIdx=i;
+            for(int j = i+1 ; j < n ; j++){
+                int profit = arr[j]-arr[i];
+                if(profit>result){
+                    result = profit;
+                }
             }
         }
-        for(int i = 0 ; i < n ; i ++){
-            if(max<arr[i]&&minIdx<i){
-                max = arr[i];
-            }
-        }
-        result=max-min;
-        if(result==Integer.MAX_VALUE){
-            result=0;
-        }
+        
         System.out.println(result);
     }
 }

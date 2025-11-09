@@ -65,8 +65,8 @@ public class Main {
             System.arraycopy(building[i],0,tmp[i],0,m);
         }
         
-        for(int x =r1;x<r2;x++){
-            for(int y=c1;y<c2;y++){
+        for(int x =r1;x<=r2;x++){
+            for(int y=c1;y<=c2;y++){
                 int sum=building[x][y];
                 int cnt=1;
                 for(int d=0;d<4;d++){

@@ -2,8 +2,8 @@ import java.util.Scanner;
 public class Main {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
-        int n = sc.nextInt();
-        int[][] grid = new int[n][n];
+         n = sc.nextInt();
+        grid = new int[n][n];
         for (int i = 0; i < n; i++)
             for (int j = 0; j < n; j++)
                 grid[i][j] = sc.nextInt();
@@ -14,52 +14,8 @@ public class Main {
         int m3 = sc.nextInt();
         int m4 = sc.nextInt();
         int dir = sc.nextInt();//0반시계 1 시계
-        int tr=r;
-        int tc=c;
-        int gr=r;
-        int gc=c;
-        int[][] temp = new int[n][n];
-        int tmp =grid[r][c];
-        for(int i = 0 ; i < n ;i++){
-            System.arraycopy(grid[i],0,temp[i],0,n);
-        }
-
-        if(dir==1){
-            
-            for(int i =0;i<m4;i++){
-                temp[--tr][--tc]=grid[gr--][gc--];
-            }
-            for(int i =0;i<m3;i++){
-                temp[--tr][++tc]=grid[gr--][gc++];
-            }
-            for(int i =0;i<m2;i++){
-                temp[++tr][++tc]=grid[gr++][gc++];
-            }
-            for(int i =0;i<m1;i++){
-                temp[++tr][--tc]=grid[gr++][gc--];
-            }
-            
-            
-
-        }else{
-            for(int i =0;i<m1;i++){
-                temp[--tr][++tc]=grid[gr--][gc++];
-            }
-            for(int i =0;i<m2;i++){
-                temp[--tr][--tc]=grid[gr--][gc--];
-            }
-            for(int i =0;i<m3;i++){
-                temp[++tr][--tc]=grid[gr++][gc--];
-            }
-            for(int i =0;i<m4;i++){
-                temp[++tr][++tc]=grid[gr++][gc++];
-            }
-        }
-        for(int i = 0 ; i < n ; i++){
-            for(int j =0;j<n;j++){
-                grid[i][j]=temp[i][j];
-            }
-        }
+        shift(r,c,m1,m2,dir);
+        
         for(int i = 0 ; i < n ; i++){
             for(int j =0;j<n;j++){
                 System.out.print(grid[i][j]+" ");
@@ -68,5 +24,34 @@ public class Main {
         }
         
         // Please write your code here.
+    }
+    static int n;
+    static int[][] grid;
+    static void shift(int x,int y ,int k,int l ,int dr){
+        int[] dx,dy,moveNums;
+        if(dr == 0){
+            dx = new int[]{-1,-1,1,1};
+            dy = new int[]{1,-1,-1,1};
+            moveNums = new int[]{k,l,k,l};
+        }else {
+            dx = new int[]{-1,-1,1,1};
+            dy = new int[]{-1,1,1,-1};
+            moveNums = new int[]{l,k,l,k};
+        }
+        int[][] tmp = new int[n][n];
+        for(int i = 0 ; i < n ;i++){
+            System.arraycopy(grid[i],0,tmp[i],0,n);
+        }
+        for(int d=0;d<4;d++){
+            for(int q=0;q<moveNums[d];q++){
+                int nx = x+dx[d];
+                int ny = y+dy[d];
+                tmp[nx][ny]=grid[x][y];
+                x=nx;y=ny;
+            }
+        }
+        for(int i = 0 ; i < n ;i++){
+            System.arraycopy(tmp[i],0,grid[i],0,n);
+        }
     }
 }

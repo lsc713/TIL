@@ -35,20 +35,23 @@ public class Main {
                     temp[i][j]=grid[i][4-j-1];
                 }
             }
-        }else if(dir=='U'){
+        }
+        else if(dir=='U'){
+            for(int i = 0 ; i <4;i++){
+                for(int j = 0 ; j < 4;j++){
+                    temp[i][j]=grid[4-j-1][i];
+                }
+            }
+        }
+        else{
             for(int i = 0 ; i <4;i++){
                 for(int j = 0 ; j < 4;j++){
                     temp[i][j]=grid[j][4-i-1];
                 }
             }
-        }else{
-            for(int i = 0 ; i <4;i++){
-                for(int j = 0 ; j < 4;j++){
-                    temp[i][j]=grid[4-j-1][4-i-1];
-                }
-            }
-            
         }
+        //03 13 23 33
+        //02 12 22 32
         grid=temp;
     }
     static void transform(char dir){
@@ -62,16 +65,18 @@ public class Main {
                     temp[i][j]=grid[i][4-j-1];
                 }
             }
-        }else if(dir=='U'){
+        }
+        else if(dir=='U'){
             for(int i = 0 ; i <4;i++){
                 for(int j = 0 ; j < 4;j++){
-                    temp[i][j]=grid[4-j-1][4-i-1];
+                    temp[i][j]=grid[j][4-i-1];
                 }
             }
         }else{
             for(int i = 0 ; i <4;i++){
                 for(int j = 0 ; j < 4;j++){
-                    temp[i][j]=grid[j][4-i-1];
+                    temp[i][j]=grid[4-j-1][i];
+                    //30 20 10 
                 }
             }
         }

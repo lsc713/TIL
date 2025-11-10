@@ -84,24 +84,17 @@ public class Main {
     }
     static int[][] grid;
     static void move(){
-        int[][] temp = new int[4][4];
-        for(int i = 0 ; i < 4; i++){
-            System.arraycopy(grid[i],0,temp[i],0,4);
-        }
         
         //숫자 몰아주기
         for(int i = 0 ; i <4;i++){
-            for(int j = 0 ; j < 3;j++){
-                if(temp[i][j]==0){
-                    temp[i][j]=temp[i][j+1];
-                    temp[i][j+1]=0;
+            int[] temp = new int[4];
+            int idx =0;
+            for(int j = 0 ; j < 4;j++){
+                if(grid[i][j]!=0){
+                    temp[idx++]=grid[i][j];
                 }
             }
-        }
-        for(int i = 0 ; i < 4;i++){
-            for(int j = 0 ; j < 4;j++){
-                grid[i][j] = temp[i][j];
-            }
+            grid[i]=temp;
         }
     }
     static void sum(){

@@ -1,59 +1,54 @@
 import java.util.Scanner;
 
 public class Main {
-    static int n,m;
-    static int[] bombs;
-    static int bombscnt;
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
          n = sc.nextInt();
          m = sc.nextInt();
-        bombs = new int[n];
-        bombscnt=0;
+         bombs = new int[n];
         for (int i = 0; i < n; i++) {
             bombs[i] = sc.nextInt();
         }
-
-        m1cond();
-        int len = n;
-        while(true){
-            int[] next = new int[n];
-            int ni=0;
-            boolean explode = false;
-            int i =0 ;
-            while(i<len){
-                int j = i;
-                while(j<len&&bombs[j]==bombs[i])j++;
-                int run = j-i;
-                if(run>=m){
+        size=n;
+        boolean explode = true;
+        int curIdx;
+        while(explode){
+            explode=false;
+            curIdx = 0;
+            while(curIdx<size){
+                int endIdx = calc(curIdx);
+                if(endIdx - curIdx+1>=m){
                     explode=true;
+                    cut(curIdx,endIdx);
                 }else{
-                    for(int k=i;k<j;k++){
-                        next[ni++]=bombs[k];
-                    }
+                    curIdx=endIdx+1;
                 }
-                i=j;
             }
-            bombs=next;
-            len=ni;
-            if(!explode)break;
         }
-        print(len);
-        
+        System.out.println(size);
+        for(int i = 0 ; i < size;i++){
+            System.out.println(bombs[i]);
+        }
         // Please write your code here.
     }
-    static void m1cond(){
-        if(m==1){
-            System.out.println(0);
-            System.exit(0);
+    static void cut(int curIdx,int endIdx){
+        int len = endIdx-curIdx+1;
+        for(int i = endIdx+1;i<size;i++){
+            bombs[i-len]=bombs[i];
         }
+        size-=len;
     }
-    static void print(int len){
-        System.out.println(len);
-        for(int i = 0 ; i < len ; i++){
-            if(bombs[i]!=0){
-                System.out.println(bombs[i]);
+    static int calc(int curIdx){
+        int endIdx = curIdx+1;
+        while(true){
+            if(bombs[endIdx]==bombs[curIdx]){
+                endIdx++;
+            }else{
+                break;
             }
         }
+        return endIdx-1;
     }
+    static int n,m,size;
+    static int[] bombs;
 }

@@ -1,35 +1,39 @@
 import java.util.Scanner;
 public class Main {
+    static int n;
+    static int[] blocks;
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
-        int n = sc.nextInt();
-        int[] blocks = new int[n];
+        n = sc.nextInt();
+        blocks = new int[n];
         for (int i = 0; i < n; i++) {
             blocks[i] = sc.nextInt();
         }
-        int s1 = sc.nextInt()-1;
-        int e1 = sc.nextInt()-1;
-        int s2 = sc.nextInt()-1;
-        int e2 = sc.nextInt()-1;
+        endidx=n;
+        for(int i = 0 ; i<2;i++){
+            int s1 = sc.nextInt()-1;
+            int e1 = sc.nextInt()-1;
+            calc(s1,e1);
+        }
+        
+        System.out.println(endidx);
+        for(int i = 0 ; i < endidx ;i++){
+            System.out.println(blocks[i]);
+        }
+        // Please write your code here.
+    }
+    static int endidx;
+    static void calc(int s,int e){
         int[] temp = new int[n];
         int idx =0;
-        for(int i =0;i<n;i++){
-            if(i<s1||i>e1){
+        for(int i =0;i<endidx;i++){
+            if(i<s||i>e){
                 temp[idx++]=blocks[i];
             }
         }
-        int[] temp2 = new int[n];
-        idx =0;
-        for(int i =0;i<n;i++){
-            if(i<s2||i>e2){
-                temp2[idx++]=temp[i];
-            }
+        for(int i = 0;i<idx;i++){
+            blocks[i]=temp[i];
         }
-        System.out.println(n-(e1-s1+1)-(e2-s2+1));
-        for(int i = 0 ; i < n ;i++){
-            if(temp2[i]!=0)
-                System.out.println(temp2[i]);
-        }
-        // Please write your code here.
+        endidx=idx;
     }
 }

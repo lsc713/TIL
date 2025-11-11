@@ -12,13 +12,15 @@ public class Main {
                 grid[i][j] = sc.nextInt();
         // Please write your code here.
         for(int i = 0 ; i<k;i++){
-            bomb();
-            drop();
+            while(bomb()){
+                drop();
+            }
             rotate();
             drop();
         }
-        bomb();
-        drop();
+        while(bomb()){
+            drop();
+        }
         int ans=0;
         for (int i = 0; i < n; i++)
             for (int j = 0; j < n; j++)
@@ -39,39 +41,38 @@ public class Main {
         }
         grid=temp;
     }
-    static int endOfArray;
-    static void bomb(){
+    static boolean bomb(){
+        boolean any = false;
         for(int j = 0 ;j<n;j++){
-            while(true){
-                boolean explode=false;
-                int row=0;
-                while(row<n){
-                    if(grid[row][j]==0){
-                        row++;continue;
+            int end = n;
+            boolean again=true;
+            while(again){
+                again=false;
+                int r= 0;
+                while(r<end){
+                    if(grid[r][j]==0){
+                        r++;continue;
                     }
-                    int start = row;
-                    int val = grid[row][j];
-                    while(row<n&&grid[row][j]==val){
-                        row++;
-                    }
-                    int end = row-1;
-                    int len = end-start+1;
+                    int r2=r+1;
+                    while(r2<end&&grid[r2][j]==grid[r][j])r2++;
+                    int len = r2-r;
                     if(len>=m){
-                        for(int r=end+1;r<n;r++){
-                            grid[r-len][j]=grid[r][j];
+                        for(int x = r2;x<n;x++){
+                            grid[x-len][j]=grid[x][j];
                         }
-                        for(int r=n-len;r<n;r++){
-                            grid[r][j]=0;
+                        for(int x= n-len;x<n;x++){
+                            grid[x][j]=0;
                         }
-                        explode=true;
-                        break;
-
+                        end-=len;
+                        again=true;
+                        any=true;
+                    }else{
+                        r=r2;
                     }
                 }
-                if(!explode)break;
             }
-            
         }
+        return any;
     }
     static void rotate(){
         int[][] temp = new int[n][n];

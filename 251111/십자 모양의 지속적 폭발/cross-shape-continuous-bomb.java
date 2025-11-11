@@ -12,12 +12,15 @@ public class Main {
         for (int i = 0; i < m; i++){
             bombCols[i] = sc.nextInt()-1;
             //열의 0이아닌 첫번째를 확인해서 터뜨리고, 조정하기.
+            int row=-1;
             for(int j = 0;j<n;j++){
                 if(grid[j][bombCols[i]]!=0){
-                    bomb(j,bombCols[i]);
-                    adjust();
-
+                   row=j;break; 
                 }
+            }
+            if(row!=-1){
+                bomb(row,bombCols[i]);
+                adjust();
             }
         }
         for(int i = 0 ; i < n ;i++){

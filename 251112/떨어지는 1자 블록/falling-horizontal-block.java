@@ -36,21 +36,22 @@ public class Main {
     static void drop(){
         boolean movable=true;
         int row =0;
-        while(movable){
+        while(movable&&row<n){
             if(n==1)break;
-            for(int i=1;i<n;i++){//행이 1이 있는지 확인하기
-                for(int j=k;j<k+m;j++){
-                    if(grid[i][j]==1){
-                        movable=false;
-                    }
+            int i=row+1;
+            if(i>=n)break;
+            for(int j=k;j<k+m;j++){
+                if(grid[i][j]==1){
+                    movable=false;
                 }
-                if(movable){
-                    for(int j=k;j<k+m;j++){
-                        grid[i-1][j]=0;
-                        grid[i][j]=1;
-                    }
-                }       
             }
+            if(movable){
+                for(int j=k;j<k+m;j++){
+                    grid[i-1][j]=0;
+                    grid[i][j]=1;
+                }
+            }       
+            row=i;
         }
     }
 }

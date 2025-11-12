@@ -37,6 +37,7 @@ public class Main {
         boolean movable=true;
         int row =0;
         while(movable){
+            if(n==1)break;
             for(int i=1;i<n;i++){//행이 1이 있는지 확인하기
                 for(int j=k;j<k+m;j++){
                     if(grid[i][j]==1){

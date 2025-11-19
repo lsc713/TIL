@@ -6,24 +6,19 @@ public class Main {
          n = sc.nextInt();
          arr = new int[n];
         // Please write your code here.
-        recur(0,1);
+        recur(0);
     }
     static int k,n;
     static int[] arr;
-    static void recur(int idx, int cnt){
+    static void recur(int idx){
         if(idx==n){
-            if(n>1&&k>1&&cnt==n)return;
             print();
             return;
         }
         for(int i =1;i<=k;i++){
-            
+            if(idx>=2&&arr[idx-2]==i&&arr[idx-1]==i) continue;
             arr[idx]=i;
-            if(idx-1>=0&&arr[idx-1]==i){
-                recur(idx+1,cnt+1);
-            }else{
-                recur(idx+1,1);
-            }
+            recur(idx+1);
         }
     }
     static void print(){

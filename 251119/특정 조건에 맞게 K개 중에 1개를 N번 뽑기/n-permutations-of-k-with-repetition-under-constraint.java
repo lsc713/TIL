@@ -12,7 +12,7 @@ public class Main {
     static int[] arr;
     static void recur(int idx, int cnt){
         if(idx==n){
-            if(n>1&&cnt==n)return;
+            if(n>1&&k>1&&cnt==n)return;
             print();
             return;
         }

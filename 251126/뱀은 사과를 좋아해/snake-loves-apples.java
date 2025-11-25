@@ -40,17 +40,18 @@ public class Main {
                     time++;
 
                 if(in(nr,nc)){
-                    if(map[nr][nc]==2){
-                        //꼬리가 사라지면 안됨.
-                        snake.addFirst(new int[]{nr,nc});
-                        map[nr][nc]=1;
-                    }else if(map[nr][nc]==1){//꼬리와 머리가 겹치면 종료
+                    if(map[nr][nc]==1){//꼬리와 머리가 겹치면 종료
                         int[] tail = snake.peekLast();
                         if(!(tail[0]==nr&&tail[1]==nc)){
                             System.out.println(time);
                             return;
                         }
                             
+                    }
+                    if(map[nr][nc]==2){
+                        //꼬리가 사라지면 안됨.
+                        snake.addFirst(new int[]{nr,nc});
+                        map[nr][nc]=1;
                     }else{
                         snake.addFirst(new int[]{nr,nc});
                         map[nr][nc]=1;

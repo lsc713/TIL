@@ -19,7 +19,7 @@ public class Main {
         for (int i = 0; i < n; i++)
             for (int j = 0; j < n; j++)
                 grid[i][j] = sc.nextInt();
-        marbles = new int[m][3];
+        marbles = new int[m][2];
         for (int i = 0; i < m; i++) {
             marbles[i][0] = sc.nextInt()-1;
             marbles[i][1] = sc.nextInt()-1;
@@ -49,6 +49,13 @@ public class Main {
             }
         }
         move();
+        // for(int i = 0 ; i < n ; i ++){
+        //     for(int j = 0 ; j <n;j++){
+        //         System.out.print(result[i][j]+" ");
+        //     }
+        //     System.out.println();
+        // }
+        // System.out.println("=====================");
         for(int i=0;i<n;i++){
             for(int j=0;j<n;j++){
                 if(result[i][j]>1){
@@ -56,6 +63,7 @@ public class Main {
                 }
             }
         }
+        temp = new ArrayList<>();
     }
     static void move(){
         for(int i = 0 ; i < temp.size();i++){

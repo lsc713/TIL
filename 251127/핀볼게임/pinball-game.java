@@ -26,11 +26,11 @@ public class Main {
             cnt= Math.max(tmp,cnt);
         }
         for(int j = 0 ; j < n;j++){
-            int tmp = simul(n,j,2);
+            int tmp = simul(n,j,0);
             cnt= Math.max(tmp,cnt);
         }
         for(int i = 0 ; i<n;i++){
-            int tmp = simul(i,n,0);
+            int tmp = simul(i,n,2);
             cnt= Math.max(tmp,cnt);
         }
         System.out.println(cnt);
@@ -48,6 +48,7 @@ public class Main {
                 return time;
             }else{
                 visited[nx][ny][dir]=true;
+
                 if(grid[nx][ny]==1){
                     dir = mir1[dir];
                 }else if(grid[nx][ny]==2){

@@ -47,12 +47,12 @@ public class Main {
             if(!in(nx,ny)||visited[nx][ny][dir]){
                 return time;
             }else{
+                visited[nx][ny][dir]=true;
                 if(grid[nx][ny]==1){
                     dir = mir1[dir];
                 }else if(grid[nx][ny]==2){
                     dir= mir2[dir];
                 }
-                visited[nx][ny][dir]=true;
             }
         }
         

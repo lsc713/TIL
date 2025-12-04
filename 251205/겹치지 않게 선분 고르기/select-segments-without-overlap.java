@@ -26,7 +26,10 @@ public class Main {
         recur(idx+1,cnt);
         boolean ok =true;
         for(int i=segments[idx][0];i<=segments[idx][1];i++){
-            if(arr[i])ok=false;break;
+            if(arr[i]){
+                ok=false;
+                break;
+            }
         }
         if(ok){
             for(int i=segments[idx][0];i<=segments[idx][1];i++){

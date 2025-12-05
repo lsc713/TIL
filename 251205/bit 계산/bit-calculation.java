@@ -1,14 +1,19 @@
-import java.util.Scanner;
+import java.util.*;
+import java.io.*;
 public class Main {
-    public static void main(String[] args) {
-        Scanner sc = new Scanner(System.in);
-        int q = sc.nextInt();
+    public static void main(String[] args) throws Exception{
+        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+        int q = Integer.parseInt(br.readLine());
         int temp=0;
-        for(int i = 0 ; i <q;i++){
-            String cd = sc.next();
+        while(q-->0){
+            String line = br.readLine();
+            StringTokenizer st = new StringTokenizer(line);
+            String cd = st.nextToken();
+
+
             int num=0;
             if(!cd.equals("clear")){
-                num = sc.nextInt();
+                num = Integer.parseInt(st.nextToken());
             }
             if(cd.equals("add")){
                 if(((temp>>num)&1)==0){

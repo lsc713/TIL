@@ -31,9 +31,9 @@ public class Main {
         bestnode = -1;
         ans=-1;
         dfs(1,0);
-        // visited = new boolean[n+1];
-        // ans=-1;
-        // dfs(bestnode,0);
+        visited = new boolean[n+1];
+        ans=-1;
+        dfs(bestnode,0);
         System.out.println(ans);
         // Please write your code here.
     }

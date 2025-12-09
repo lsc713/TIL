@@ -1,4 +1,5 @@
 import java.util.*;
+import java.io.*;
 public class Main {
     static class Node{
         int x,y;
@@ -13,18 +14,21 @@ public class Main {
     static int[] dy = {0,0,-1,1};
     static char[] chars = {'D','U','R','L'};
     static List<Node> list;
-    public static void main(String[] args) {
-        Scanner sc = new Scanner(System.in);
-        int T = sc.nextInt();
+    public static void main(String[] args) throws Exception{
+        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+        StringTokenizer st;
+        int T = Integer.parseInt(br.readLine());
         while(T-- > 0) {
-            n = sc.nextInt();
+            st = new StringTokenizer(br.readLine());
+            n = Integer.parseInt(st.nextToken());
             list = new ArrayList<>();
             int[][] cnt = new int[n][n];
-            m = sc.nextInt();
+            m = Integer.parseInt(st.nextToken());
             for (int i = 0; i < m; i++) {
-                int x = sc.nextInt()-1;
-                int y = sc.nextInt()-1;
-                char d = sc.next().charAt(0);
+                st = new StringTokenizer(br.readLine());
+                int x = Integer.parseInt(st.nextToken())-1;
+                int y = Integer.parseInt(st.nextToken())-1;
+                char d = st.nextToken().charAt(0);
                 list.add(new Node(x,y,d));
             }
             for(int a=0;a<200;a++){
@@ -40,10 +44,11 @@ public class Main {
                         newList.add(list.get(i));
                     }
                 }
-                list=newList;
-                for(int i = 0 ; i < n ;i++){
-                    Arrays.fill(cnt[i],0);
+                for(int i = 0 ; i < list.size() ;i++){
+                    cnt[list.get(i).x][list.get(i).y]--;
                 }
+                list=newList;
+
             }
             
             System.out.println(list.size());

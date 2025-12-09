@@ -16,6 +16,7 @@ public class Main {
     static List<Node> list;
     public static void main(String[] args) throws Exception{
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+        StringBuilder sb = new StringBuilder();
         StringTokenizer st;
         int T = Integer.parseInt(br.readLine());
         while(T-- > 0) {
@@ -50,12 +51,12 @@ public class Main {
                 list=newList;
 
             }
-            
-            System.out.println(list.size());
+            sb.append(list.size()).append("\n");
 
 
             // Please write your code here.
         }
+        System.out.println(sb.toString());
         
     }
     static int n,m;

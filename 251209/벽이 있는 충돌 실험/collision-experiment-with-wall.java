@@ -1,17 +1,8 @@
 import java.util.*;
 import java.io.*;
 public class Main {
-    static class Node{
-        int x,y,d;
-        public Node(int x,int y,int d){
-            this.x=x;
-            this.y=y;
-            this.d=d;
-        }
-    }
     static int[] dx = {-1,0,0,1};
     static int[] dy = {0,-1,1,0};
-    static List<Node> list;
     public static void main(String[] args) throws Exception{
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         StringBuilder sb = new StringBuilder();
@@ -20,9 +11,13 @@ public class Main {
         while(T-- > 0) {
             st = new StringTokenizer(br.readLine());
             n = Integer.parseInt(st.nextToken());
-            list = new ArrayList<>();
-            int[][] cnt = new int[n][n];
             m = Integer.parseInt(st.nextToken());
+
+            int[][] cnt = new int[n][n];
+            int[] xs = new int[m];
+            int[] ys = new int[m];
+            int[] ds = new int[m];
+            int k=m;
             for (int i = 0; i < m; i++) {
                 st = new StringTokenizer(br.readLine());
                 int x = Integer.parseInt(st.nextToken())-1;
@@ -33,31 +28,40 @@ public class Main {
                 else if(d=='D')dir=3;
                 else if(d=='L')dir=1;
                 else dir=2;
-                list.add(new Node(x,y,dir));
+                xs[i]=x;
+                ys[i]=y;
+                ds[i]=dir;
+
             }
-            for(int a=0;a<2*n;a++){
-                for(int i = 0 ; i < list.size();i++){
-                    move(list.get(i));
-                }
-                for(int i = 0 ; i < list.size();i++){
-                    cnt[list.get(i).x][list.get(i).y]++;
-                }
-                List<Node> newList = new ArrayList<>();
-                for(int i = 0 ; i < list.size();i++){
-                    if(cnt[list.get(i).x][list.get(i).y]==1){
-                        newList.add(list.get(i));
+            for(int a=0;a<2*n&&k>1;a++){
+                for(int i = 0 ; i < k;i++){
+                    int nx = xs[i]+dx[ds[i]];
+                    int ny = ys[i]+dy[ds[i]];
+                    if(in(nx,ny)){
+                        xs[i]=nx;
+                        ys[i]=ny;
+                    }else{
+                        ds[i]=3-ds[i];
                     }
                 }
-                for(int i = 0 ; i < list.size() ;i++){
-                    cnt[list.get(i).x][list.get(i).y]--;
+                for(int i = 0 ; i < k;i++){
+                    cnt[xs[i]][ys[i]]++;
                 }
-                list=newList;
+                int nk=0;
+                for(int i = 0 ; i < k;i++){
+                    if(cnt[xs[i]][ys[i]]==1){
+                        xs[nk]=xs[i];
+                        ys[nk]=ys[i];
+                        ds[nk]=ds[i];
+                        nk++;
+                    }
+                    cnt[xs[i]][ys[i]]=0;
+
+                }
+                k=nk;
 
             }
-            sb.append(list.size()).append("\n");
-
-
-            // Please write your code here.
+            sb.append(k).append("\n");
         }
         System.out.println(sb.toString());
         
@@ -65,17 +69,5 @@ public class Main {
     static int n,m;
     static boolean in(int x,int y){
         return 0<=x&&x<n&&0<=y&&y<n;
-    }
-    static void move(Node node){
-        int x = node.x;
-        int y = node.y;
-        int nx = x+dx[node.d];
-        int ny = y+dy[node.d];
-        if(in(nx,ny)){
-            node.x=nx;
-            node.y=ny;
-        }else{
-            node.d = 3-node.d;
-        }
     }
 }

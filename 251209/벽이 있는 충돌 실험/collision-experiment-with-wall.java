@@ -31,7 +31,7 @@ public class Main {
                 char d = st.nextToken().charAt(0);
                 list.add(new Node(x,y,d));
             }
-            for(int a=0;a<200;a++){
+            for(int a=0;a<2*n;a++){
                 for(int i = 0 ; i < list.size();i++){
                     move(list.get(i));
                 }

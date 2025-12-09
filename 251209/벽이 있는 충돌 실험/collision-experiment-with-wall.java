@@ -1,0 +1,86 @@
+import java.util.*;
+public class Main {
+    static class Node{
+        int x,y;
+        char d;
+        public Node(int x,int y,char d){
+            this.x=x;
+            this.y=y;
+            this.d=d;
+        }
+    }
+    static int[] dx = {-1,1,0,0};
+    static int[] dy = {0,0,-1,1};
+    static char[] chars = {'U','D','R','L'};
+    static List<Node> list;
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        int T = sc.nextInt();
+        while(T-- > 0) {
+            n = sc.nextInt();
+            list = new ArrayList<>();
+            int[][] cnt = new int[n][n];
+            m = sc.nextInt();
+            for (int i = 0; i < m; i++) {
+                int x = sc.nextInt()-1;
+                int y = sc.nextInt()-1;
+                char d = sc.next().charAt(0);
+                list.add(new Node(x,y,d));
+            }
+            for(int a=0;a<200;a++){
+                for(int i = 0 ; i < list.size();i++){
+                    move(list.get(i));
+                }
+                for(int i = 0 ; i < list.size();i++){
+                    cnt[list.get(i).x][list.get(i).y]++;
+                }
+                List<Node> newList = new ArrayList<>();
+                for(int i = 0 ; i < list.size();i++){
+                    if(cnt[list.get(i).x][list.get(i).y]==1){
+                        newList.add(list.get(i));
+                    }
+                }
+                list=newList;
+                for(int i = 0 ; i < n ;i++){
+                    Arrays.fill(cnt[i],0);
+                }
+            }
+            
+            System.out.println(list.size());
+
+
+            // Please write your code here.
+        }
+        
+    }
+    static int n,m;
+    static boolean in(int x,int y){
+        return 0<=x&&x<n&&0<=y&&y<n;
+    }
+    static void move(Node node){
+        int x = node.x;
+        int y = node.y;
+        char d = node.d;
+        int direction = dir(d);
+        int nx = x+dx[direction];
+        int ny = y+dy[direction];
+        if(in(nx,ny)){
+            node.x=nx;
+            node.y=ny;
+        }else{
+            node.d = chars[direction];
+        }
+    }
+    static int dir(char d){
+        if(d=='D'){
+            return 1;
+        }else if(d=='U'){
+            return 0;
+        }else if(d=='L'){
+            return 2;
+        }else {
+            return 3;
+        }
+
+    }
+}

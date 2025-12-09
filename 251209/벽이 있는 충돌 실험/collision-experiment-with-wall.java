@@ -2,17 +2,15 @@ import java.util.*;
 import java.io.*;
 public class Main {
     static class Node{
-        int x,y;
-        char d;
-        public Node(int x,int y,char d){
+        int x,y,d;
+        public Node(int x,int y,int d){
             this.x=x;
             this.y=y;
             this.d=d;
         }
     }
-    static int[] dx = {-1,1,0,0};
-    static int[] dy = {0,0,-1,1};
-    static char[] chars = {'D','U','R','L'};
+    static int[] dx = {-1,0,0,1};
+    static int[] dy = {0,-1,1,0};
     static List<Node> list;
     public static void main(String[] args) throws Exception{
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
@@ -30,7 +28,12 @@ public class Main {
                 int x = Integer.parseInt(st.nextToken())-1;
                 int y = Integer.parseInt(st.nextToken())-1;
                 char d = st.nextToken().charAt(0);
-                list.add(new Node(x,y,d));
+                int dir=0;
+                if(d=='U')dir=0;
+                else if(d=='D')dir=3;
+                else if(d=='L')dir=1;
+                else dir=2;
+                list.add(new Node(x,y,dir));
             }
             for(int a=0;a<2*n;a++){
                 for(int i = 0 ; i < list.size();i++){
@@ -66,27 +69,13 @@ public class Main {
     static void move(Node node){
         int x = node.x;
         int y = node.y;
-        char d = node.d;
-        int direction = dir(d);
-        int nx = x+dx[direction];
-        int ny = y+dy[direction];
+        int nx = x+dx[node.d];
+        int ny = y+dy[node.d];
         if(in(nx,ny)){
             node.x=nx;
             node.y=ny;
         }else{
-            node.d = chars[direction];
+            node.d = 3-node.d;
         }
-    }
-    static int dir(char d){
-        if(d=='D'){
-            return 1;
-        }else if(d=='U'){
-            return 0;
-        }else if(d=='L'){
-            return 2;
-        }else {
-            return 3;
-        }
-
     }
 }

@@ -15,7 +15,7 @@ public class Main {
         // Please write your code here.
         bfs(new int[]{0,0});
         
-        System.out.println((a[n-1][m-1]==0) ? -1 : a[n-1][m-1]-1);
+        System.out.println((a[n-1][m-1]==1) ? -1 : a[n-1][m-1]-1);
     }
     static void bfs(int[] tmp){
         Queue<int[]> q= new LinkedList<>();

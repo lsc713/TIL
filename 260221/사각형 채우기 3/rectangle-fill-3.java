@@ -1,41 +1,18 @@
-import java.util.*;
-
+import java.util.Scanner;
 public class Main {
-    static final long MOD = 1_000_000_007;
-
-    public static void main(String[] args){
+    public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
         int n = sc.nextInt();
-
-        long[][] dp = new long[n+1][4];
-
-        dp[0][0] = 1;
-
-        for(int i=0; i<n; i++){
-            // mask = 0
-            dp[i+1][0] = (dp[i+1][0] + dp[i][0] * 2) % MOD;
-            dp[i+1][1] = (dp[i+1][1] + dp[i][0]) % MOD;
-            dp[i+1][2] = (dp[i+1][2] + dp[i][0]) % MOD;
-            dp[i+1][3] = (dp[i+1][3] + dp[i][0]) % MOD;
-
-            // mask = 1
-            if(i+1 <= n){
-                dp[i+1][0] = (dp[i+1][0] + dp[i][1]) % MOD;
-                dp[i+1][2] = (dp[i+1][2] + dp[i][1]) % MOD;
-            }
-
-            // mask = 2
-            if(i+1 <= n){
-                dp[i+1][0] = (dp[i+1][0] + dp[i][2]) % MOD;
-                dp[i+1][1] = (dp[i+1][1] + dp[i][2]) % MOD;
-            }
-
-            // mask = 3
-            if(i+1 <= n){
-                dp[i+1][0] = (dp[i+1][0] + dp[i][3]) % MOD;
+        long[] dp = new long[1001];
+        dp[0]=1;
+        dp[1]=2;
+        for(int i =2 ;i<=n;i++){
+            dp[i]=(dp[i-1]*2+dp[i-2]*3)%1000000007;
+            for(int j=i-3;j>=0;j--){
+                dp[i]=(dp[i]+dp[j]*2)%1000000007;;
             }
         }
-
-        System.out.println(dp[n][0] % MOD);
+        System.out.println(dp[n]);
+        // Please write your code here.
     }
 }

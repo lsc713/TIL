@@ -10,7 +10,7 @@ public class Main {
                 grid[i][j] = sc.nextInt();
         // Please write your code here.
         int ans =0;
-        int[][] dp = new int[n][n];
+        int[][] dp = new int[n][m];
         for(int i = 0 ; i < n;i++){
             for(int j = 0 ; j < m ; j++){
                 dp[i][j]=1;

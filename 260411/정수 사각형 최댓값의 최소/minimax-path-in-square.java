@@ -13,14 +13,12 @@ public class Main {
         int[][] dp= new int[n][n];
         dp[0][0]=matrix[0][0];
         for(int i = 1;i<n;i++){
-            for(int j =1;j<n;j++){
-                dp[i][0]=Math.max(dp[i-1][0],matrix[i][0]);
-                dp[0][j]=Math.max(dp[0][j-1],matrix[0][j]);
-            }
+            dp[i][0]=Math.max(dp[i-1][0],matrix[i][0]);
+            dp[0][i]=Math.max(dp[0][i-1],matrix[0][i]);
         }
         for(int i = 1 ; i < n ; i ++){
             for(int j =1 ;  j < n;j++){
-                dp[i][j] = Math.min(Math.max(dp[i-1][j],dp[i][j-1]),dp[i][j]);
+                dp[i][j] = Math.max(Math.min(dp[i-1][j],dp[i][j-1]),matrix[i][j]);
             }
         }
         System.out.println(dp[n-1][n-1]);

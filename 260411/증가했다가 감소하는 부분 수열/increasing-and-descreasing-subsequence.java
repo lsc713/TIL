@@ -8,28 +8,21 @@ public class Main {
             arr[i] = sc.nextInt();
         }
         int ans =0;
-        int[] inc = new int[n];
-        int[] des = new int[n];
-        for(int i = 0 ; i <n;i++){
-            inc[i]=1;
-            for(int j=0;j<i;j++){
-                if(arr[i]>arr[j]){
-                    inc[i]=Math.max(inc[i],inc[j]+1);
-                }
-            }
-        }
-        for(int i = n-1 ; i >=0;i--){
-            des[i]=1;
-            for(int j=i+1;j<n;j++){
-                if(arr[i]>arr[j]){
-                    des[i]=Math.max(des[i],des[j]+1);
-                }
-            }
-        }
+        int[][] dp = new int[n][n];
         for(int i = 0 ; i < n ; i ++){
-            ans = Math.max(ans,inc[i]+des[i]-1);
+            dp[i][0]=1;
+            dp[i][1]=1;
+            for(int j = 0 ; j < n ; j++){
+                if(arr[i]>arr[j]){
+                    dp[i][0] = Math.max(dp[i][0],dp[j][0]+1);
+                }
+                if(arr[i]<arr[j]){
+                    dp[i][1] = Math.max(dp[i][1],dp[j][1]+1);
+                }
+            }
+            dp[i][1] = Math.max(dp[i][1],dp[i][0]);
+            ans=Math.max(ans,dp[i][1]);
         }
-            
         System.out.println(ans);
         // Please write your code here.
     }

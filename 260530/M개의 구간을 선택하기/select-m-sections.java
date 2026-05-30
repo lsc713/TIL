@@ -1,7 +1,7 @@
 import java.util.*;
 
 public class Main {
-    public static int SENTINEL = -5000001;
+    static int SENTINEL = -500001;
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
         int n = sc.nextInt();
@@ -17,25 +17,26 @@ public class Main {
             }
         }
         dp[0][0][0]=0;
-        for(int i = 1;i<=n;i++){
-            for(int j =0;j<=m;j++){
-                int best = SENTINEL;
-                if(dp[i-1][j][0] != SENTINEL){
-                    best = Math.max(best,dp[i-1][j][0]); //구간미선택,구간 밖
+        for(int i =1;i<=n;i++){
+            for(int j = 0;j<=m;j++){
+                int best =SENTINEL;
+                if(dp[i-1][j][0]!=SENTINEL){
+                    best=Math.max(best,dp[i-1][j][0]);
                 }
-                if(dp[i-1][j][1] != SENTINEL){
-                    best = Math.max(best,dp[i-1][j][1]); //이전 구간있지만, 미선택(구간종료)
+                if(dp[i-1][j][1]!=SENTINEL){
+                    best=Math.max(best,dp[i-1][j][1]);
                 }
-                dp[i][j][0]= best;
+                dp[i][j][0]=best;
+
                 best=SENTINEL;
-                //구간 선택, 구간안 - 이전건은 구간안에있는거여야함.
-                if(j>=1 && dp[i-1][j-1][0] != SENTINEL){
-                    best = Math.max(best, dp[i-1][j-1][0] +arr[i]);
-                }
                 if(dp[i-1][j][1] != SENTINEL){
-                    best = Math.max(best,dp[i-1][j][1] + arr[i]); //구간선택안하지만,구간안 - 독자적 구간만들기
+                    best=Math.max(best,dp[i-1][j][1]+arr[i]);
                 }
-                dp[i][j][1]= best;
+                if(j>=1&&dp[i-1][j-1][0] != SENTINEL){
+                    best=Math.max(best,dp[i-1][j-1][0]+arr[i]);
+                }
+                dp[i][j][1]=best;
+
             }
         }
         System.out.println(Math.max(dp[n][m][0],dp[n][m][1]));
